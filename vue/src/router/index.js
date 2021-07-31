@@ -56,8 +56,8 @@ const router = new Router({
     },
 
     {
-      path: "/spoonaculardata",
-      name: "spoonaculardata",
+      path: "/spoonacular",
+      name: "spoonacular",
       component: SpoonacularData,
       meta: {
         requiresAuth: false

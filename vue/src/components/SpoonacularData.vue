@@ -4,10 +4,11 @@
 
       <button v-on:click="getData"> Click Here For A Recipe! </button>
 
-      <h2>{{info.title}}</h2>
+  <!-- /*    <h2>{{info.title}}</h2>
       <p>
           <img v-bind:src="info.url" v-bind:alt="info.explanation" >
-      </p>
+      </p> -->
+      
   </div>
 </template>
 
