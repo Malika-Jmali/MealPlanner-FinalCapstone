@@ -1,43 +1,95 @@
 <template>
   <div>
-    <!--  {{info}} -->
+    <!--  when we search for a recipe we get the recipe id so we can use that to access the recipe's details and show them
+          on a "new" page (a new route) 
+          -->
 
-      <button v-on:click="getData"> Click Here For A Recipe! </button>
+    <!-- <button v-on:click="getData">Click Here For A Recipe!</button> -->
+    <div>
+      <label for="recipe">Search for Recipes</label>
+      <input type="text" name="recipe" v-model="search" />
+       <label for="recipe">Search for Recipes By Category</label>
+      <input type="text" name="recipe" v-model="typeKeyword" />
+      <button id="submitSearch" v-on:click="getRecipeList">Search</button>
+    </div>
+    <!-- <div>
+      <label for="recipe">Search for Recipes By Category</label>
+      <input type="text" name="recipe" v-model="typeKeyword" />
+      <button id="submitSearch" v-on:click="getRecipeByType">Search</button>
+    </div> -->
 
-  <!-- /*    <h2>{{info.title}}</h2>
-      <p>
-          <img v-bind:src="info.url" v-bind:alt="info.explanation" >
-      </p> -->
-      
+    <div id="result-list" v-for="result in resultArr" v-bind:key="result.id">
+    <p>{{result.title}}</p>
+    <img v-bind:src="result.image" alt="food image">
+    </div>
+    
+    <div id="result-array" v-for="type in typeArry" v-bind:key="type.id">
+    <p>{{type.title}}</p>
+    <img v-bind:src="type.image" alt="food image">
+    </div>
   </div>
 </template>
 
 <script>
-
-import SpoonacularService from '../services/SpoonacularService.js';
+import SpoonacularService from "../services/SpoonacularService.js";
 
 export default {
-  name: 'SpoonacularService',
+  name: "Spoonacular-Service",
   data() {
-      return {
-          info: ''
-      }
+    return {
+      info: "",
+      search: "",
+      typeKeyword:"",
+      results: "",
+      typeResults: "",
+      resultArr: [],
+      typeArry: []
+    };
   },
   methods: {
-      getData() {
-           
-        SpoonacularService.retrieveSpoonacularData().then(response => {
-
-            this.info = response.data;
+    getData() {
+      SpoonacularService.retrieveSpoonacularData().then((response) => {
+        this.info = response.data;
+      });
+    },
+    
+    getRecipeList() {
+      if (this.search != "" && this.typeKeyword != ""){
+        SpoonacularService.retrieveRecipesByNameAndCategory(this.search, this.typeKeyword).then((response) => {
+          this.results = response.data;
+          this.resultArr = this.results.results;
+          this.search = "";
+          this.typeKeyword= "";
+          
         })
-
       }
-  }
-
-}
-
+      else if(this.search != ""){
+        SpoonacularService.retrieveSpoonacularSearch(this.search).then(
+        (response) => {
+          this.results = response.data;
+          this.resultArr = this.results.results;
+          this.search = "";
+          
+          
+        })
+      }
+      else {
+        SpoonacularService.retrieveSearchByType(this.typeKeyword).then(
+        (response) => {
+          this.typeResults = response.data;
+          this.typeArry = this.typeResults.results;
+          this.typeKeyword= "";
+         
+        }
+      );
+      }
+      this.typeArry= [];
+      this.resultArr = [];
+    },
+   
+  },
+};
 </script>
 
 <style>
-
 </style>
