@@ -1,5 +1,6 @@
 <template>
-  <recipe-details></recipe-details>
+  <!-- <recipe-details></recipe-details> -->
+  <recipe-details/>
 </template>
 
 <script>

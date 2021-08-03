@@ -8,7 +8,7 @@
     <div>
       <label for="recipe">Search for Recipes</label>
       <input type="text" name="recipe" v-model="search" />
-       <label for="recipe">Search for Recipes By Category</label>
+      <label for="recipe">Search for Recipes By Category</label>
       <input type="text" name="recipe" v-model="typeKeyword" />
 
       <!-- <div>
@@ -19,7 +19,6 @@
       </div> -->
 
       <button id="submitSearch" v-on:click="getRecipeList">Search</button>
-     
     </div>
     <!-- <div>
       <label for="recipe">Search for Recipes By Category</label>
@@ -27,14 +26,23 @@
       <button id="submitSearch" v-on:click="getRecipeByType">Search</button>
     </div> -->
 
-    <div id="result-list" v-for="result in resultArr" v-bind:key="result.id">
-    <p><router-link v-bind:to="{name: 'recipeDetails', params:{reci}}" >{{result.title}}</p>
-    <img v-bind:src="result.image" alt="food image">
+    <div
+      id="result-list"
+      v-for="result in resultArr"
+      v-bind:key="result.id"
+    >
+      <p>
+        <router-link
+          v-bind:to="{ name: 'recipeDetails', params:{id: result.id}}">
+          {{ result.title }}
+        </router-link>
+      </p>
+      <img v-bind:src="result.image" alt="food image" />
     </div>
-    
+
     <div id="result-array" v-for="type in typeArry" v-bind:key="type.id">
-    <p>{{type.title}}</p>
-    <img v-bind:src="type.image" alt="food image">
+      <p>{{ type.title }}</p>
+      <img v-bind:src="type.image" alt="food image" />
     </div>
   </div>
 </template>
@@ -48,12 +56,27 @@ export default {
     return {
       info: "",
       search: "",
-      typeKeyword:"",
+      typeKeyword: "",
       results: "",
       typeResults: "",
       resultArr: [],
       typeArry: [],
-      categories: ['main course', 'side dish', 'dessert', 'appetizer', 'salad', 'bread', 'breakfast', 'soup', 'beverage', 'sauce', 'marinade', 'fingerfood', 'snack', 'drink']
+      categories: [
+        "main course",
+        "side dish",
+        "dessert",
+        "appetizer",
+        "salad",
+        "bread",
+        "breakfast",
+        "soup",
+        "beverage",
+        "sauce",
+        "marinade",
+        "fingerfood",
+        "snack",
+        "drink",
+      ],
     };
   },
   methods: {
@@ -62,43 +85,39 @@ export default {
         this.info = response.data;
       });
     },
-    
+
     getRecipeList() {
-      if (this.search != "" && this.typeKeyword != ""){
-        SpoonacularService.retrieveRecipesByNameAndCategory(this.search, this.typeKeyword).then((response) => {
+      if (this.search != "" && this.typeKeyword != "") {
+        SpoonacularService.retrieveRecipesByNameAndCategory(
+          this.search,
+          this.typeKeyword
+        ).then((response) => {
           this.results = response.data;
           this.resultArr = this.results.results;
           this.search = "";
-          this.typeKeyword= "";
-          
-        })
-      }
-      else if(this.search != ""){
+          this.typeKeyword = "";
+        });
+      } else if (this.search != "") {
         SpoonacularService.retrieveSpoonacularSearch(this.search).then(
-        (response) => {
-          this.results = response.data;
-          this.resultArr = this.results.results;
-          this.search = "";
-          
-          
-        })
-      }
-      else {
+          (response) => {
+            this.results = response.data;
+            this.resultArr = this.results.results;
+            this.search = "";
+          }
+        );
+      } else {
         SpoonacularService.retrieveSearchByType(this.typeKeyword).then(
-        (response) => {
-          this.typeResults = response.data;
-          this.typeArry = this.typeResults.results;
-          this.typeKeyword= "";
-         
-        }
-      );
+          (response) => {
+            this.typeResults = response.data;
+            this.typeArry = this.typeResults.results;
+            this.typeKeyword = "";
+          }
+        );
       }
-      this.typeArry= [];
+      this.typeArry = [];
       this.resultArr = [];
     },
-
-
-  }
+  },
 };
 </script>
 
