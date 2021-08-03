@@ -10,7 +10,16 @@
       <input type="text" name="recipe" v-model="search" />
        <label for="recipe">Search for Recipes By Category</label>
       <input type="text" name="recipe" v-model="typeKeyword" />
+
+      <!-- <div>
+        <label for="recipe">Select a Category</label>
+        <select v-model="typeSearch">Choose a Category
+          <option value="dessert">Dessert</option>
+        </select>
+      </div> -->
+
       <button id="submitSearch" v-on:click="getRecipeList">Search</button>
+     
     </div>
     <!-- <div>
       <label for="recipe">Search for Recipes By Category</label>
@@ -43,7 +52,8 @@ export default {
       results: "",
       typeResults: "",
       resultArr: [],
-      typeArry: []
+      typeArry: [],
+      categories: ['main course', 'side dish', 'dessert', 'appetizer', 'salad', 'bread', 'breakfast', 'soup', 'beverage', 'sauce', 'marinade', 'fingerfood', 'snack', 'drink']
     };
   },
   methods: {
@@ -86,8 +96,9 @@ export default {
       this.typeArry= [];
       this.resultArr = [];
     },
-   
-  },
+
+
+  }
 };
 </script>
 
