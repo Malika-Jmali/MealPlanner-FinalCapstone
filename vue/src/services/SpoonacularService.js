@@ -17,6 +17,10 @@ export default {
     retrieveRecipesByNameAndCategory(search1, search2) {
         return axios.get('https://api.spoonacular.com/recipes/complexSearch/?apiKey=' + apiKey + '&query='+ search1 + '&type=' + search2);
     },
+
+    retrieveRecipeDetails(id) {
+        return axios.get('https://api.spoonacular.com/recipes/' + id  + '/information/?apiKey=' + apiKey);
+    }
     
 }
 
