@@ -19,7 +19,7 @@
     </div> -->
 
     <div id="result-list" v-for="result in resultArr" v-bind:key="result.id">
-    <p>{{result.title}}</p>
+    <p><router-link v-bind:to="{name: 'recipeDetails', params:{reci}}" >{{result.title}}</p>
     <img v-bind:src="result.image" alt="food image">
     </div>
     
