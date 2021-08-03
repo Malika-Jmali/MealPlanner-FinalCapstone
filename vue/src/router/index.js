@@ -6,6 +6,7 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
 import SpoonacularData from '../views/SpoonacularData'
+import RecipeDetails from '../views/RecipeDetails'
 
 Vue.use(Router)
 
@@ -62,9 +63,23 @@ const router = new Router({
       meta: {
         requiresAuth: false
       }
+    
+    },
+    {
+        
+      path: "/recipeDetails",
+      name: "recipeDetails",
+      component: RecipeDetails,
+      meta: {
+        requiresAuth: false
+
+      }
 
     }
+      
   ]
+
+
 })
 
 router.beforeEach((to, from, next) => {
