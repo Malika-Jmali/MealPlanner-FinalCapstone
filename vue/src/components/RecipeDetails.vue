@@ -15,14 +15,14 @@ export default {
   data() {
     return {
       result: "",
-      ingredientList: [],
+     // ingredientList: [],
       recipes: [{
         title: "",
         readyInMinutes: "",
         servings: "",
         image: "",
         instructions: "",
-        ingredients: []
+        // ingredients: []
       }], 
     };
   },
@@ -38,10 +38,10 @@ export default {
           this.recipe[0].image = this.result.image;
           this.recipe[0].instructions = this.result.instructions;
 
-          this.ingredientList = this.result.extendedIngredients;
-          for(let ingredient in this.ingredientList){
-            this.recipes[0].ingredients.push(ingredient.original);
-          }
+          // this.ingredientList = this.result.extendedIngredients;
+          // for(let ingredient in this.ingredientList){
+          //   this.recipes[0].ingredients.push(ingredient.original);
+          // }
         }  
       );
     },

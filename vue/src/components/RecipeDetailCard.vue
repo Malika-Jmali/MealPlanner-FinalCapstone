@@ -6,18 +6,18 @@
     <p>{{recipe.servings}}</p>
     <p>{{recipe.image}}</p>
     <p>{{recipe.instructions}}</p>
-    <div v-for="ingredient in recipe.ingredients" v-bind:key="ingredient.id">
+    <!-- <div v-for="ingredient in recipe.ingredients" v-bind:key="ingredient.id">
       <p>{{ingredient}}</p>
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
 export default {
     name: 'recipe-detail-card',
-    props: {
-      recipe: Object
-    }
+    // props: {
+    //   recipe: Object
+    // }
     
 }
 </script>
