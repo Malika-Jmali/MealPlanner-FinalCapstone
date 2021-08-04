@@ -1,23 +1,23 @@
 <template>
  <div>
     <!-- <p>{{ result }}</p> -->
-    <p>{{recipe.title}}</p>
-    <p>{{recipe.readyInMinutes}}</p>
-    <p>{{recipe.servings}}</p>
-    <p>{{recipe.image}}</p>
-    <p>{{recipe.instructions}}</p>
-    <!-- <div v-for="ingredient in recipe.ingredients" v-bind:key="ingredient.id">
+    <p>{{recipes.title}}</p>
+    <p>{{recipes.readyInMinutes}}</p>
+    <p>{{recipes.servings}}</p>
+    <p>{{recipes.image}}</p>
+    <p>{{recipes.instructions}}</p>
+    <div v-for="ingredient in recipes.ingredients" v-bind:key="ingredient.id">
       <p>{{ingredient}}</p>
-    </div> -->
+    </div>
   </div>
 </template>
 
 <script>
 export default {
     name: 'recipe-detail-card',
-    // props: {
-    //   recipe: Object
-    // }
+    props: {
+      recipes: Array
+    }
     
 }
 </script>

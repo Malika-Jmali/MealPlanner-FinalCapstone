@@ -1,7 +1,9 @@
 <template>
   <div>
     <p v-bind="displayRecipe()">recipe</p>
-    <recipe-detail-card v-bind:recipe="recipe" v-for="recipe in recipes" v-bind:key="recipe.id" />
+    <!-- <p>{{recipes}}</p> -->
+    <p>{{result}}</p>
+    <recipe-detail-card v-bind:recipes="recipes" v-for="recipe in recipes" v-bind:key="recipe.id" />
   </div>
 </template>
 
@@ -15,14 +17,14 @@ export default {
   data() {
     return {
       result: "",
-     // ingredientList: [],
+     ingredientList: [],
       recipes: [{
         title: "",
         readyInMinutes: "",
         servings: "",
         image: "",
         instructions: "",
-        // ingredients: []
+        ingredients: []
       }], 
     };
   },
@@ -32,16 +34,16 @@ export default {
         (response) => {
           this.result = response.data;
 
-          this.recipe[0].title = this.result.title;
-          this.recipe[0].readyInMinutes = this.result.readyInMinutes;
-          this.recipe[0].servings = this.result.servings;
-          this.recipe[0].image = this.result.image;
-          this.recipe[0].instructions = this.result.instructions;
+          this.recipes[0].title = this.result.title;
+          this.recipes[0].readyInMinutes = this.result.readyInMinutes;
+          this.recipes[0].servings = this.result.servings;
+          this.recipes[0].image = this.result.image;
+          this.recipes[0].instructions = this.result.instructions;
 
-          // this.ingredientList = this.result.extendedIngredients;
-          // for(let ingredient in this.ingredientList){
-          //   this.recipes[0].ingredients.push(ingredient.original);
-          // }
+          this.ingredientList = this.result.extendedIngredients;
+          for(let ingredient in this.ingredientList){
+            this.recipes[0].ingredients.push(ingredient.original);
+          }
         }  
       );
     },
