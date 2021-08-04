@@ -1,8 +1,8 @@
 <template>
   <div>
-    <recipe-detail-card />
-    <p v-bind="displayRecipe()">recipe</p>
-    <p>{{ resultArr }}</p>
+    <recipe-detail-card v-bind:recipe="recipe" v-for="recipe in recipes" v-bind:key="recipe.id" />
+    <!-- <p v-bind="displayRecipe()">recipe</p> -->
+    <p>{{ recipe }}</p>
   </div>
 </template>
 
@@ -16,7 +16,13 @@ export default {
   data() {
     return {
       result: "",
-      resultArr: [],
+      recipes: [{
+        title: "Chicken 65",
+        readyInMinutes: "35 minutes",
+        servings: "6",
+        image: "chick pix",
+        instructions: "Heat until done"
+      }],
     };
   },
   methods: {
@@ -25,12 +31,11 @@ export default {
         (response) => {
           this.result = response.data;
 
-          this.resultArr.push(this.result.title);
-          this.resultArr.push(this.result.readyInMinutes);
-          this.resultArr.push(this.result.servings);
-          this.resultArr.push(this.result.image);
-          this.resultArr.push(this.result.instructions);
-          this.result="";
+          this.recipe[0].title = this.result.title;
+          this.recipe[0].readyInMinutes = this.result.readyInMinutes;
+          this.recipe[0].servings = this.result.servings;
+          this.recipe[0].image = this.result.image;
+          this.recipe[0].instructions = this.result.instructions;
         }  
       );
     },
