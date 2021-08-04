@@ -6,6 +6,9 @@
     <p>{{recipe.servings}}</p>
     <p>{{recipe.image}}</p>
     <p>{{recipe.instructions}}</p>
+    <div v-for="ingredient in recipe.ingredients" v-bind:key="ingredient.id">
+      <p>{{ingredient}}</p>
+    </div>
   </div>
 </template>
 

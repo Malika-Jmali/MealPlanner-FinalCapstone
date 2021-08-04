@@ -1,8 +1,7 @@
 <template>
   <div>
+    <p v-bind="displayRecipe()">recipe</p>
     <recipe-detail-card v-bind:recipe="recipe" v-for="recipe in recipes" v-bind:key="recipe.id" />
-    <!-- <p v-bind="displayRecipe()">recipe</p> -->
-    <p>{{ recipe }}</p>
   </div>
 </template>
 
@@ -16,13 +15,15 @@ export default {
   data() {
     return {
       result: "",
+      ingredientList: [],
       recipes: [{
-        title: "Chicken 65",
-        readyInMinutes: "35 minutes",
-        servings: "6",
-        image: "chick pix",
-        instructions: "Heat until done"
-      }],
+        title: "",
+        readyInMinutes: "",
+        servings: "",
+        image: "",
+        instructions: "",
+        ingredients: []
+      }], 
     };
   },
   methods: {
@@ -36,6 +37,11 @@ export default {
           this.recipe[0].servings = this.result.servings;
           this.recipe[0].image = this.result.image;
           this.recipe[0].instructions = this.result.instructions;
+
+          this.ingredientList = this.result.extendedIngredients;
+          for(let ingredient in this.ingredientList){
+            this.recipes[0].ingredients.push(ingredient.original);
+          }
         }  
       );
     },
