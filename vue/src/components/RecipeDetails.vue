@@ -1,20 +1,29 @@
 <template>
   <div>
-     <input type="text" name="recipe" v-model="typeKeyword" />
-      <button id="submitSearch" v-on:click="displayRecipe">Click</button>
-    <p>{{ result }}</p>
+    <p v-bind="displayRecipe()">recipe</p>
+    <recipe-detail-card v-bind:recipe="recipe" v-for="recipe in recipes" v-bind:key="recipe.id" />
   </div>
 </template>
 
 <script>
 import SpoonacularService from "../services/SpoonacularService";
+import RecipeDetailCard from  "../components/RecipeDetailCard";
 
 export default {
+  components: {RecipeDetailCard },
   name: "recipe-details",
   data() {
     return {
       result: "",
-      resultArr: [],
+      ingredientList: [],
+      recipes: [{
+        title: "",
+        readyInMinutes: "",
+        servings: "",
+        image: "",
+        instructions: "",
+        ingredients: []
+      }], 
     };
   },
   methods: {
@@ -22,10 +31,21 @@ export default {
       SpoonacularService.retrieveRecipeDetails(this.$route.params.id).then(
         (response) => {
           this.result = response.data;
-          this.resultArr = this.results.results;
-        }
+
+          this.recipe[0].title = this.result.title;
+          this.recipe[0].readyInMinutes = this.result.readyInMinutes;
+          this.recipe[0].servings = this.result.servings;
+          this.recipe[0].image = this.result.image;
+          this.recipe[0].instructions = this.result.instructions;
+
+          this.ingredientList = this.result.extendedIngredients;
+          for(let ingredient in this.ingredientList){
+            this.recipes[0].ingredients.push(ingredient.original);
+          }
+        }  
       );
     },
+    
   },
 };
 </script>
