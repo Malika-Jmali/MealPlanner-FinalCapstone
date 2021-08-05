@@ -7,9 +7,9 @@
     <!-- <p>{{recipes[0].image}}</p> -->
      <img v-bind:src="recipes[0].image" alt="food image" />
     <p>Instructions: {{recipes[0].instructions}}</p>
-    <!-- <div v-for="ingredient in recipes[0].ingredients" v-bind:key="ingredient.id">
-      <p>{{ingredient}}</p>
-    </div> -->
+    <div v-for="ingredient in recipes[0].ingredients" v-bind:key="ingredient.id">
+      <p>{{ingredient.original}}</p>
+    </div>
   </div>
 </template>
 

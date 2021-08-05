@@ -17,7 +17,6 @@ export default {
   data() {
     return {
       result: "",
-     ingredientList: [],
       recipes: [
         {
         title: "",
@@ -25,7 +24,7 @@ export default {
         servings: "",
         image: "",
         instructions: "",
-        // ingredients: []
+        ingredients: []
       }
       ], 
     };
@@ -42,10 +41,8 @@ export default {
           this.recipes[0].image = this.result.image;
           this.recipes[0].instructions = this.result.instructions;
 
-          // this.ingredientList = this.result.extendedIngredients;
-          // for(let ingredient in this.ingredientList){
-          //   this.recipes[0].ingredients.push(ingredient.original);
-          // }
+          this.recipes[0].ingredients = response.data.extendedIngredients;
+        
         }  
       );
     },
