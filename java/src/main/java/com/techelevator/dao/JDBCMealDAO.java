@@ -75,7 +75,9 @@ public class JDBCMealDAO implements MealDAO{
      dinnerRecipe.setImage(results.getString("image"));
      dinnerRecipe.setInstructions(results.getString("instructions"));
 
-
+    newMeal.setBreakfastRecipe(breakfastRecipe);
+    newMeal.setLunchRecipe(lunchRecipe);
+    newMeal.setDinnerRecipe(dinnerRecipe);
 
         return newMeal;
     };
