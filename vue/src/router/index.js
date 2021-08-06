@@ -7,6 +7,7 @@ import Register from '../views/Register.vue'
 import store from '../store/index'
 import SpoonacularData from '../views/SpoonacularData'
 import RecipeDetails from '../views/RecipeDetails'
+import UserMeals from '../views/UserMeals'
 
 Vue.use(Router)
 
