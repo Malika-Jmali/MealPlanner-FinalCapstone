@@ -4,14 +4,13 @@ import com.techelevator.dao.MealDAO;
 import com.techelevator.dao.UserDAO;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
+@RestController
+@CrossOrigin
+//@PreAuthorize("isAuthenticated()")
 
-@PreAuthorize("isAuthenticated()")
 public class MealController {
     private MealDAO mealDAO;
     private UserDAO userDAO;
@@ -22,16 +21,11 @@ public class MealController {
     }
 
 
-    @ResponseStatus(HttpStatus.CREATED)
+
     @RequestMapping(path = "/meals", method = RequestMethod.GET)
-    public void getAllMeals(Principal principal) {
+    public void getMeals(Principal principal) {
         principal.getName();
-
-
         int userId = userDAO.findIdByUsername(principal.getName());
-
-
-
-        mealDAO.getAllMeals(userId);
+        mealDAO.getMeals(userId);
     }
 }

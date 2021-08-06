@@ -5,21 +5,25 @@ import com.techelevator.model.Recipe;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import javax.sql.DataSource;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @Component
 
 public class JDBCMealDAO implements MealDAO{
+
     private JdbcTemplate jdbcTemplate;
-    public JDBCMealDAO(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
+
+    public JDBCMealDAO(DataSource dataSource) {
+        this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
     @Override
-    public List<Meal> getAllMeals(int userID) {
+    public List<Meal> getMeals(int userID) {
         List<Meal> myMeals = new ArrayList<>();
         String sql= "SELECT meal_id, meal_name, breakfastrecipe.*, lunchrecipe.*, dinnerrecipe.* " +
                 "FROM meal " +

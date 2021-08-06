@@ -81,7 +81,7 @@ const router = new Router({
       name: "userMeals",
       component: UserMeals,
       meta: {
-        requiresAuth: true
+        requiresAuth: false
       }
     }
       
