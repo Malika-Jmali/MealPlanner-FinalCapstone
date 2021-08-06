@@ -109,4 +109,6 @@ Garnish with green onions and sesame seeds.');
 
 INSERT INTO meal (meal_id, user_id, meal_name, breakfast_id, lunch_id, dinner_id) VALUES (1, 1, 'Vegetarian', 1, 2, 3);
 
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO final_capstone_appuser;
 COMMIT TRANSACTION;
+
