@@ -2,6 +2,7 @@ package com.techelevator.controller;
 //
 import com.techelevator.dao.MealDAO;
 import com.techelevator.dao.UserDAO;
+import com.techelevator.model.Meal;
 import org.springframework.http.HttpStatus;
 //import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -40,8 +41,8 @@ public class MealController {
 
 
     @RequestMapping(path = "/meals", method = RequestMethod.GET)
-    public void getMeals(Principal principal) {
+    public List<Meal> getMeals(Principal principal) {
         int userId = userDAO.findIdByUsername(principal.getName());
-        mealDAO.getMeals(userId);
+        return mealDAO.getMeals(userId);
     }
 }

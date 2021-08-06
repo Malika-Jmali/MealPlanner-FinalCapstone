@@ -11,7 +11,6 @@ import javax.sql.DataSource;
 import java.util.ArrayList;
 import java.util.List;
 
-
 @Component
 
 public class JDBCMealDAO implements MealDAO{
@@ -30,9 +29,10 @@ public class JDBCMealDAO implements MealDAO{
                 "JOIN recipe AS breakfastrecipe ON breakfast_id = breakfastrecipe.recipe_id " +
                 "JOIN recipe AS lunchrecipe ON lunch_id = lunchrecipe.recipe_id " +
                 "JOIN recipe AS dinnerrecipe ON dinner_id = dinnerrecipe.recipe_id " +
-                "WHERE meal.user_id = ?;";
+                "WHERE meal.user_id = ?";
+        System.out.println(sql);
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userID);
 
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
 
 
         while (results.next()) {
