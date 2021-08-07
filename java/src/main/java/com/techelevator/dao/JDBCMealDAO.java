@@ -65,16 +65,15 @@ public class JDBCMealDAO implements MealDAO{
     }
 
     @Override
-    public Meal addMeal(int userID, Meal meal) {
-        Meal myMeal = new Meal();
-
-        int mealID = getNextMealId();
+    public void addMeal(int userID, Meal meal) {
+        //int mealID = getNextMealId();
+        meal.setMealId(getNextMealId());
 
         String sql = "INSERT INTO meal (meal_id, user_id, meal_name, breakfast_id, lunch_id, dinner_id) VALUES (?, ?, ?, ?, ?, ?)";
 
-        jdbcTemplate.update(sql, mealID, userID, meal.getMealName(), meal.getBreakFastID(), meal.getLunchID(), meal.getDinnerID());
+        jdbcTemplate.update(sql, meal.getMealId(), userID, meal.getMealName(), meal.getBreakfastID(), meal.getLunchID(), meal.getDinnerID());
 
-        return meal;
+
     }
 
     private Meal mapRowToMeal(SqlRowSet results){

@@ -4,7 +4,7 @@ public class Meal {
 
     int mealId;
     String mealName;
-    int breakFastID;
+    int breakfastID;
     int lunchID;
     int dinnerID;
     Recipe breakfastRecipe= new Recipe();
@@ -51,12 +51,12 @@ public class Meal {
         this.dinnerRecipe = dinnerRecipe;
     }
 
-    public int getBreakFastID() {
-        return breakFastID;
+    public int getBreakfastID() {
+        return breakfastID;
     }
 
-    public void setBreakFastID(int breakFastID) {
-        this.breakFastID = breakFastID;
+    public void setBreakfastID(int breakfastID) {
+        this.breakfastID = breakfastID;
     }
 
     public int getLunchID() {

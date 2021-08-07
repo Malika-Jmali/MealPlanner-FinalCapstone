@@ -55,9 +55,9 @@ public class MealController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path = "/meals", method = RequestMethod.POST)
-    public Meal addMeal(@Valid @RequestBody Meal meal, Principal principal) {
+    public void addMeal(@Valid @RequestBody Meal meal, Principal principal) {
         int userId = userDAO.findIdByUsername(principal.getName());
-        return mealDAO.addMeal(userId, meal);
+        mealDAO.addMeal(userId, meal);
     }
 
 
