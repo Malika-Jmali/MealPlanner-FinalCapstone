@@ -1,9 +1,13 @@
 <template>
-  <div class="home">
-    
-    <div class="cotent">
-    <!-- <h1 v-if="$store.state.token == '' ">Welcome to Forktastic</h1> -->
-     <!-- <h1 v-if="$store.state.token != '' ">Welcome {{$store.state.user.username}}!</h1> -->
+<div class ="hero">
+  <div class="container">
+    <div class="main-message">
+      <h1>Welcome To Forktastic</h1>
+      <p>Welcome to the app that makes meal planning easier than it's ever been. You can search our library
+        of recipes for free, and sign up for an account to save recipes to your own customizable meal plans.
+        </p>
+        <router-link v-bind:to="{ name: 'register' }" v-if="$store.state.token == ''">Sign up for Free</router-link>
+      </div>
      </div>
   </div>
 </template>
@@ -27,10 +31,5 @@ div {
   background-position: center;
 }
 
-h1 {
-  font-size: 5rem;
-  padding: 50px;
-  
-}
 
 </style>

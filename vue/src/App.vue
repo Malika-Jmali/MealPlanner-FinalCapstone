@@ -20,7 +20,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
 
@@ -31,4 +31,9 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+
+a:hover {
+  color: black;
+}
+
 </style>
