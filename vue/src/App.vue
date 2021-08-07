@@ -1,17 +1,32 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link v-bind:to="{ name: 'home' }">Home</router-link> 
-      <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
-      
-    </div>
+    <nav>
+    </nav>
+    <the-header />
     <router-view />
-  </div>
+    </div>
+  
 </template>
-// <script>
-// import SpoonacularData from '../components/SpoonacularData.vue'
-// export default {
-//   components:
-//     SpoonacularData
-// }
-// </script>
+
+<script>
+import TheHeader from './components/TheHeader.vue'
+
+export default {
+
+  name: 'App',
+  components: {
+    TheHeader,
+  }
+}
+</script>
+
+<style scoped>
+
+#app {
+  font-family: 'Poppins';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+</style>
