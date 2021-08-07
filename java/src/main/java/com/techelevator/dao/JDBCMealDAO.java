@@ -45,7 +45,27 @@ public class JDBCMealDAO implements MealDAO{
         return myMeals;
     }
 
+    @Override
+    public List<Recipe> getRecipes(int userId) {
+        List<Recipe> myRecipes = new ArrayList<>();{
+            String sql= "SELECT * FROM recipe WHERE user_id =?";
+
+            SqlRowSet results= jdbcTemplate.queryForRowSet(sql,userId);
+
+            while (results.next()){
+
+                Recipe recipe= mapRowToRecipe(results);
+                myRecipes.add(recipe);
+
+            }
+        }
+
+
+        return myRecipes;
+    }
+
     private Meal mapRowToMeal(SqlRowSet results){
+
         Meal newMeal = new Meal();
         Recipe breakfastRecipe = new Recipe();
         Recipe lunchRecipe = new Recipe();
@@ -85,6 +105,25 @@ public class JDBCMealDAO implements MealDAO{
 
         return newMeal;
     };
+
+    private  Recipe mapRowToRecipe(SqlRowSet results){
+
+        Recipe newRecipe= new Recipe();
+        newRecipe.setRecipeId(results.getInt("recipe_id"));
+
+        newRecipe.setUserId(results.getInt("user_id"));
+        newRecipe.setRecipeName(results.getString("recipe_name"));
+        newRecipe.setReadyInMinutes(results.getString("ready_in_minutes"));
+        newRecipe.setServing(results.getString("serving"));
+        newRecipe.setIngredients(results.getString("recipe_ingredients"));
+        newRecipe.setImage(results.getString("image"));
+        newRecipe.setInstructions(results.getString("instructions"));
+
+        return  newRecipe;
+
+
+    };
+
 
 
 }

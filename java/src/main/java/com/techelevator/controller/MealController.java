@@ -3,6 +3,7 @@ package com.techelevator.controller;
 import com.techelevator.dao.MealDAO;
 import com.techelevator.dao.UserDAO;
 import com.techelevator.model.Meal;
+import com.techelevator.model.Recipe;
 import org.springframework.http.HttpStatus;
 //import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -44,5 +45,11 @@ public class MealController {
     public List<Meal> getMeals(Principal principal) {
         int userId = userDAO.findIdByUsername(principal.getName());
         return mealDAO.getMeals(userId);
+    }
+
+    @RequestMapping(path = "/recipes", method = RequestMethod.GET)
+    public List<Recipe> getRecipes(Principal principal) {
+        int userId = userDAO.findIdByUsername(principal.getName());
+        return mealDAO.getRecipes(userId);
     }
 }
