@@ -64,6 +64,19 @@ public class JDBCMealDAO implements MealDAO{
         return myRecipes;
     }
 
+    @Override
+    public Meal addMeal(int userID, Meal meal) {
+        Meal myMeal = new Meal();
+
+        int mealID = getNextMealId();
+
+        String sql = "INSERT INTO meal (meal_id, user_id, meal_name, breakfast_id, lunch_id, dinner_id) VALUES (?, ?, ?, ?, ?, ?)";
+
+        jdbcTemplate.update(sql, mealID, userID, meal.getMealName(), meal.getBreakFastID(), meal.getLunchID(), meal.getDinnerID());
+
+        return meal;
+    }
+
     private Meal mapRowToMeal(SqlRowSet results){
 
         Meal newMeal = new Meal();
@@ -123,6 +136,14 @@ public class JDBCMealDAO implements MealDAO{
 
 
     };
+    private int getNextMealId() {
+        SqlRowSet nextIdResult = jdbcTemplate.queryForRowSet("SELECT nextval('meal_meal_id_seq')");
+        if(nextIdResult.next()) {
+            return nextIdResult.getInt(1);
+        } else {
+            throw new RuntimeException("Something went wrong while getting an id for the new address");
+        }
+    }
 
 
 

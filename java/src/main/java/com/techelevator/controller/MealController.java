@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import javax.validation.Valid;
 
 
 @RestController
@@ -52,4 +52,13 @@ public class MealController {
         int userId = userDAO.findIdByUsername(principal.getName());
         return mealDAO.getRecipes(userId);
     }
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @RequestMapping(path = "/meals", method = RequestMethod.POST)
+    public Meal addMeal(@Valid @RequestBody Meal meal, Principal principal) {
+        int userId = userDAO.findIdByUsername(principal.getName());
+        return mealDAO.addMeal(userId, meal);
+    }
+
+
 }

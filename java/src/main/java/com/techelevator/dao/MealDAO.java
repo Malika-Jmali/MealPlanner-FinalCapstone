@@ -10,4 +10,6 @@ public interface MealDAO {
 
     List <Recipe> getRecipes (int userId);
 
+    Meal addMeal(int userID, Meal meal);
+
 }
