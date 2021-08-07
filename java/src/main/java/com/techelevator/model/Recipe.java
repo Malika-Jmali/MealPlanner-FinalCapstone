@@ -1,12 +1,16 @@
 package com.techelevator.model;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
+
 public class Recipe {
     int recipeId;
     int userId;
     String recipeName;
     String readyInMinutes;
     String serving;
-    String ingredients;
+    ArrayList<String> ingredients;
     String image;
     String instructions;
 
@@ -15,6 +19,7 @@ public class Recipe {
     }
 
     public void setRecipeId(int recipeId) {
+
         this.recipeId = recipeId;
     }
 
@@ -50,12 +55,17 @@ public class Recipe {
         this.serving = serving;
     }
 
-    public String getIngredients() {
+    public ArrayList<String> getIngredients() {
         return ingredients;
     }
 
     public void setIngredients(String ingredients) {
-        this.ingredients = ingredients;
+        String[] ingredientSplit = ingredients.split(",");
+
+        ArrayList<String> ingredientList = new ArrayList<String>(
+                Arrays.asList(ingredientSplit));
+
+        this.ingredients = ingredientList;
     }
 
     public String getImage() {
