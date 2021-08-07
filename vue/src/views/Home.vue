@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    
     <div class="cotent">
     <!-- <h1 v-if="$store.state.token == '' ">Welcome to Forktastic</h1> -->
      <!-- <h1 v-if="$store.state.token != '' ">Welcome {{$store.state.user.username}}!</h1> -->
@@ -17,7 +18,7 @@ export default {
 
 div {
   min-height: 100vh;
-  padding: 0 9%;
+  padding: 0 10%;
 }
 
 .home {
