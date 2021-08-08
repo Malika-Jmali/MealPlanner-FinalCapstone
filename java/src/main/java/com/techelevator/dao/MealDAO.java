@@ -12,4 +12,6 @@ public interface MealDAO {
 
     void addMeal(int userID, Meal meal);
 
+    Meal retrieveMealByID (int mealId);
+
 }

@@ -76,6 +76,27 @@ public class JDBCMealDAO implements MealDAO{
 
     }
 
+    @Override
+    public Meal retrieveMealByID(int mealId) {
+        Meal theMeal = new Meal();
+
+        String sql = "SELECT meal_id, meal_name, breakfastrecipe.*, lunchrecipe.*, dinnerrecipe.* " +
+                "FROM meal " +
+                "JOIN recipe AS breakfastrecipe ON breakfast_id = breakfastrecipe.recipe_id " +
+                "JOIN recipe AS lunchrecipe ON lunch_id = lunchrecipe.recipe_id " +
+                "JOIN recipe AS dinnerrecipe ON dinner_id = dinnerrecipe.recipe_id " +
+                "WHERE meal.meal_id = ?";
+
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, mealId);
+
+        while(results.next()){
+            theMeal = mapRowToMeal(results);
+        }
+
+
+        return theMeal;
+    }
+
     private Meal mapRowToMeal(SqlRowSet results){
 
         Meal newMeal = new Meal();

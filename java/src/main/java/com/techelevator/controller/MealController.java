@@ -60,5 +60,10 @@ public class MealController {
         mealDAO.addMeal(userId, meal);
     }
 
+    @RequestMapping(path = "/mealPlanDetails/{id}", method = RequestMethod.GET)
+    public Meal getMeals(@PathVariable Integer id) {
+        return mealDAO.retrieveMealByID(id);
+    }
+
 
 }
