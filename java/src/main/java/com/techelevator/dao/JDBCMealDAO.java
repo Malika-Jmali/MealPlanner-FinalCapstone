@@ -30,7 +30,7 @@ public class JDBCMealDAO implements MealDAO{
                 "JOIN recipe AS lunchrecipe ON lunch_id = lunchrecipe.recipe_id " +
                 "JOIN recipe AS dinnerrecipe ON dinner_id = dinnerrecipe.recipe_id " +
                 "WHERE meal.user_id = ?";
-        
+
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userID);
 
 
@@ -110,6 +110,10 @@ public class JDBCMealDAO implements MealDAO{
      dinnerRecipe.setIngredients(results.getString("recipe_ingredients"));
      dinnerRecipe.setImage(results.getString("image"));
      dinnerRecipe.setInstructions(results.getString("instructions"));
+
+     newMeal.setBreakfastID(breakfastRecipe.getRecipeId());
+     newMeal.setLunchID(lunchRecipe.getRecipeId());
+     newMeal.setDinnerID(dinnerRecipe.getRecipeId());
 
     newMeal.setBreakfastRecipe(breakfastRecipe);
     newMeal.setLunchRecipe(lunchRecipe);
