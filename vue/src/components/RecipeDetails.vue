@@ -66,6 +66,7 @@ export default {
   flex-direction: column;
   text-align: left;
   padding: 2em;
+  border-radius: 10px;
 }
 
 .title {

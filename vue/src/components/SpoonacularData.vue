@@ -117,6 +117,11 @@ export default {
 h1 {
   margin-top: -300px;
   font-size: 40px;
+  color: gray;
+}
+
+label {
+  color: gray;
 }
 
 .search-field {
@@ -177,6 +182,12 @@ a:hover {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+}
+
+img {
+  
+   border-radius: 10px;
+   box-shadow: 0 0 20px 0 rgba(0,0,0,0.2), 0 5px 5px 0 rgba(0,0,0,0.24);
 }
 
 .links {

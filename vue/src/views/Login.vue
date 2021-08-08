@@ -72,7 +72,6 @@ export default {
   padding: 10px 45px 30px 45px;
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0,0,0,0.2), 0 5px 5px 0 rgba(0,0,0,0.24);
-  
 }
 
 a {

@@ -28,16 +28,18 @@ export default {
 
 .container {
     box-sizing: border-box;
+    top: 0; 
+    left: 0;
+    height: 4rem;
     position: fixed;
-    top: 0; left: 0;
     width: 100%;
+    z-index: 10000;
     background: #fff;
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
     padding: 1rem 2%; 
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
 }
 
 .logo {
