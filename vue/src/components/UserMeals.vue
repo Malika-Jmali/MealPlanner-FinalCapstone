@@ -1,7 +1,7 @@
 <template>
 
   <div>
-      <p v-bind="getMyMeals()">meals</p>
+      <p v-bind="getMyMeals()"></p>
       <p>{{meals}}</p>
   </div>
 
@@ -31,3 +31,7 @@ data() {
 
 
 </script>
+
+<style>
+
+</style>

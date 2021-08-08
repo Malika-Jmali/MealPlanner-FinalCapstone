@@ -22,7 +22,7 @@ public class JDBCMealDAO implements MealDAO{
     }
 
     @Override
-    public List<Meal> getMeals(int userID) {
+    public List<Meal> getMeals(int userId) {
         List<Meal> myMeals = new ArrayList<>();
         String sql= "SELECT meal_id, meal_name, breakfastrecipe.*, lunchrecipe.*, dinnerrecipe.* " +
                 "FROM meal " +
@@ -31,7 +31,7 @@ public class JDBCMealDAO implements MealDAO{
                 "JOIN recipe AS dinnerrecipe ON dinner_id = dinnerrecipe.recipe_id " +
                 "WHERE meal.user_id = ?";
 
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userID);
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
 
 
 
