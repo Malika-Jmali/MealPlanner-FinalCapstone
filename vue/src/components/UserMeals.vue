@@ -4,6 +4,7 @@
       <p v-bind="getMyMeals()">meals</p>
       <p>{{meals}}</p>
   </div>
+
 </template>
 
 <script>
@@ -14,7 +15,9 @@ export default {
 name: "user-meals",
 data() {
     return {
+    
     meals: "",
+
     }
     },
     methods: {
@@ -23,7 +26,7 @@ data() {
                 this.meals = response.data;
             })
         }
-    },
+    }
 }
 
 
