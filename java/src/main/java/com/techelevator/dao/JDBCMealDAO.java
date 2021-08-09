@@ -65,9 +65,16 @@ public class JDBCMealDAO implements MealDAO{
     }
 
     @Override
+<<<<<<< HEAD
+    public Meal addMeal(int userID, Meal meal) {
+//        Meal myMeal = new Meal();
+
+        int mealID = getNextMealId();
+=======
     public void addMeal(int userID, Meal meal) {
         //int mealID = getNextMealId();
         meal.setMealId(getNextMealId());
+>>>>>>> 98c52195135686e2a615ccbe57ddbafaf693037c
 
         String sql = "INSERT INTO meal (meal_id, user_id, meal_name, breakfast_id, lunch_id, dinner_id) VALUES (?, ?, ?, ?, ?, ?)";
 
