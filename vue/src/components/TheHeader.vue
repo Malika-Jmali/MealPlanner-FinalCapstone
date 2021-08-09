@@ -1,7 +1,7 @@
 <template>
   <div class="container-header">
         <router-link v-if="$store.state.token == '' " v-bind:to="{name: 'home'}" class="logo">FORKTASTIC</router-link>
-        <router-link v-if="$store.state.token != '' " v-bind:to="{name: 'userMeals'}" class="logo">Welcome, {{$store.state.user.username}}!</router-link>
+        <router-link v-if="$store.state.token != '' " v-bind:to="{name: 'userMeals'}" class="logo">Bienvenue dans notre meal planner, {{$store.state.user.username}}!</router-link>
         <nav>
         <router-link v-bind:to="{name: 'home'}">Home</router-link>
          <router-link v-bind:to="{name: 'spoonacular'}">Search Recipes</router-link>

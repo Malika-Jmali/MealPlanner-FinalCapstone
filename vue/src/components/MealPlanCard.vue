@@ -7,6 +7,7 @@
         
         <p>{{meal.lunchRecipe.recipeName}}</p>
         <p>{{meal.dinnerRecipe.recipeName}}</p>
+        <router-link v-bind:to="{ name: 'addMealPlan'}">Click here to add a new mealplan</router-link>
         </div>
   </div>
 </template>
