@@ -1,12 +1,12 @@
 <template>
-    <form>
+    <form v-on:submit.prevent="submitMeal">
     <div class="form-element">
         <label for="category">Name Your New Meal Plan:</label>
-        <input id="category" type="text"/>
+        <input id="category" type="text" v-model="newMeal.mealName">
     </div>
     <div class="form-element">
         <label for="breakfast">Breakfast:</label>
-        <select id="breakfast">
+        <select id="breakfast" v-model="newMeal.breakfastID">
             <option value="1">Breakfast Vegetable Scramble</option>
             <option value="2">Garden Fresh Flatbread</option>
             <option value="3">Sesame Garlic Ramen Noodles</option>
@@ -21,7 +21,7 @@
     </div>
       <div class="form-element">
         <label for="lunch">Lunch:</label>
-        <select id="lunch">
+        <select id="lunch" v-model="newMeal.lunchID">
             <option value="1">Breakfast Vegetable Scramble</option>
             <option value="2">Garden Fresh Flatbread</option>
             <option value="3">Sesame Garlic Ramen Noodles</option>
@@ -36,7 +36,7 @@
     </div>
       <div class="form-element">
         <label for="dinner">Dinner:</label>
-        <select id="dinner">
+        <select id="dinner" v-model="newMeal.dinnerID">
             <option value="1">Breakfast Vegetable Scramble</option>
             <option value="2">Garden Fresh Flatbread</option>
             <option value="3">Sesame Garlic Ramen Noodles</option>
@@ -59,9 +59,26 @@
 
 
 <script>
+import MealService from '../services/MealService'
 export default {
-    name: 'add-meal-plan'
-}
+    name: 'add-meal-plan',
+
+    data() {
+        return{
+            newMeal: {},
+ 
+            submitMeal(){
+                MealService.addMeal(this.newMeal)
+            
+                  this.$router.push('meals');
+              }
+         
+        }
+            
+        }
+    }
+
+
 </script>
 
 <style>

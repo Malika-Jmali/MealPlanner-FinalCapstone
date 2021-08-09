@@ -3,7 +3,7 @@ import axios from 'axios';
 export default {
 
   addMeal(meal) {
-    return axios.post('/meals', meal);
+   axios.post('/meals', meal);
   },
 
   getMealsById(id) {
@@ -30,6 +30,7 @@ export default {
       }
       console.log(error.config);
     });
-  }
+  },
+
 
 }
