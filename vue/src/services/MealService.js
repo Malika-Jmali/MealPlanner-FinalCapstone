@@ -3,10 +3,14 @@ import axios from 'axios';
 export default {
 
   addMeal(meal) {
-    return axios.post('/meals', meal)
+    return axios.post('/meals', meal);
   },
 
-  getMeals() {
+  getMealsById(id) {
+    return axios.get('/mealPlanDetails/' + id);
+  },
+
+  getAllMeals() {
     return axios.get('/meals')
     .catch(function (error) {
       if (error.response) {

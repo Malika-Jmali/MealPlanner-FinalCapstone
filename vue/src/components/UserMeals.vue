@@ -1,10 +1,8 @@
 <template>
 
-  <div>
-      <p v-bind="getMyMeals()"></p>
-      <!-- <p>{{meals}}</p> -->
-      <!-- <p>{{meal}}</p> -->
+      <div v-bind="getMyMeals()">
       <meal-plan-card v-bind:meal="meal" v-for="meal in meals" v-bind:key="meal.id"/>
+      
   </div>
 
 </template>
@@ -13,6 +11,7 @@
 
 import MealService from '../services/MealService';
 import MealPlanCard from '../components/MealPlanCard';
+
 
 export default {
 name: "user-meals",
@@ -25,7 +24,7 @@ data() {
     },
     methods: {
         getMyMeals() {
-            MealService.getMeals().then((response) => {
+            MealService.getAllMeals().then((response) => {
                 this.meals = response.data;
             })
         },
@@ -38,5 +37,8 @@ data() {
 </script>
 
 <style>
+
+
+
 
 </style>

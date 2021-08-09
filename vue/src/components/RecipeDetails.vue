@@ -53,7 +53,7 @@ export default {
 
 <style>
 
-.body {
+.body-recipe-card {
  margin: 5rem;
  display: grid;
  place-items: center;

@@ -1,8 +1,5 @@
 <template>
-<div>
 <user-meals/>
-</div>
-  
 </template>
 
 <script>
@@ -14,8 +11,6 @@ components: {
 }
 </script>
 
-<style scoped>
-div {
-    margin-top: 100px;
-}
+<style>
+
 </style>

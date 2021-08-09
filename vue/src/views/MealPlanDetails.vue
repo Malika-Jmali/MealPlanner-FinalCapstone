@@ -1,7 +1,7 @@
 <template>
-<div>
+
 <meal-plan-details/>
-</div>
+
   
 </template>
 
@@ -14,8 +14,7 @@ components: {
 }
 </script>
 
-<style scoped>
-div {
-    margin-top: 100px;
-}
+<style>
+
+
 </style>

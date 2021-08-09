@@ -1,5 +1,5 @@
 <template>
-<div id="container">
+<div id="container-register">
   <div id="register" class="text-center">
     <form class="form-register" @submit.prevent="register">
       <h1 class="h3 mb-3 font-weight-normal">Create Account</h1>
@@ -36,7 +36,7 @@
        <button class="btn btn-lg btn-primary btn-block" type="submit">
         Create Account
       </button>
-      <router-link :to="{ name: 'login' }">Have an account?</router-link>
+      <router-link class="have-account" :to="{ name: 'login' }">Have an account?</router-link>
      
     </form>
   </div>
@@ -93,15 +93,16 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 
-#container {
- padding: 0;
- margin: 0;
- 
+#container-register {
+  margin: 0;
+  padding: 0;
+  box-sizing:border-box;
 }
 
 .form-register {
+  
   font-family: 'Poppins';
   color: gray;
   position: relative;
@@ -113,14 +114,14 @@ export default {
   box-shadow: 0 0 20px 0 rgba(0,0,0,0.2), 0 5px 5px 0 rgba(0,0,0,0.24);
 }
 
-a {
+.have-account {
   text-decoration: none;
   color: #000;
   padding: 15px;
   text-align: center;
 }
 
-a:hover {
+.have-account:hover {
   color: gray;
   
 }
@@ -142,7 +143,7 @@ a:hover {
   transition: all 1s ease 0s;
 }
 
-button {
+.btn {
   text-transform: uppercase;
   font-weight: bold;
   outline: 0;
@@ -156,8 +157,9 @@ button {
   margin-bottom: 10px;
 }
 
-button:hover, button:active, button:focus {
+.btn:hover, .btn:active, .btn:focus {
   background-color: #000;
+  color: gray;
   transition: all 1s ease 0s;
   cursor: pointer;
 }

@@ -1,5 +1,5 @@
 <template>
-  <div id="container">
+  <div id="container-login">
   <div id="login" class="text-center">
     <form class="form-signin" @submit.prevent="login">
       <h1 class="signin">Please Sign In</h1>
@@ -9,9 +9,9 @@
       <input type="text" id="username" class="form-control" placeholder="Username" v-model="user.username" required autofocus />
       <label for="password" class="sr-only">Password</label>
       <input type="password" id="password" class="form-control" placeholder="Password" v-model="user.password" required />
-      <button type="submit">Sign in</button>
+      <button class = "login-button" type="submit">Sign in</button>
       <br>
-      <router-link :to="{ name: 'register' }">Need an account?</router-link>
+      <router-link class = "login-link" :to="{ name: 'register' }">Need an account?</router-link>
     </form>
   </div>
 </div>
@@ -40,7 +40,7 @@ export default {
           if (response.status == 200) {
             this.$store.commit("SET_AUTH_TOKEN", response.data.token);
             this.$store.commit("SET_USER", response.data.user);
-            this.$router.push("/");
+            this.$router.push("/meals");
           }
         })
         .catch(error => {
@@ -55,12 +55,12 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 
-#container {
- padding: 0;
- margin: 0;
- box-sizing: border-box;
+#container-login {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 .form-signin {
@@ -74,14 +74,14 @@ export default {
   box-shadow: 0 0 20px 0 rgba(0,0,0,0.2), 0 5px 5px 0 rgba(0,0,0,0.24);
 }
 
-a {
+.login-link {
   text-decoration: none;
   color: #000;
   padding: 15px;
   text-align: center;
 }
 
-a:hover {
+.login-link:hover {
   color: gray;
 
 }
@@ -103,7 +103,7 @@ a:hover {
   transition: all 1s ease 0s;
 }
 
-button {
+.login-button {
   text-transform: uppercase;
   font-weight: bold;
   outline: 0;
@@ -117,8 +117,9 @@ button {
   margin-bottom: 10px;
 }
 
-button:hover, button:active, button:focus {
+.login-button:hover, .login-button:active, .login-button:focus {
   background-color: #000;
+  color: gray;
   transition: all 1s ease 0s;
   cursor: pointer;
 }

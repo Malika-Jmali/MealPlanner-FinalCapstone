@@ -1,8 +1,7 @@
 <template>
   <div id="app">
-    <nav>
-    </nav>
     <the-header />
+    <!-- <the-header  v-if="$store.state.token == '' " /> -->
     <router-view />
     </div>
   
@@ -30,10 +29,9 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #000;
+ 
 }
 
-a:hover {
-  color: black;
-}
+
 
 </style>

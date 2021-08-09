@@ -29,7 +29,7 @@ public class JDBCMealDAO implements MealDAO{
                 "JOIN recipe AS breakfastrecipe ON breakfast_id = breakfastrecipe.recipe_id " +
                 "JOIN recipe AS lunchrecipe ON lunch_id = lunchrecipe.recipe_id " +
                 "JOIN recipe AS dinnerrecipe ON dinner_id = dinnerrecipe.recipe_id " +
-                "WHERE meal.meal_id = ?";
+                "WHERE meal.user_id = ?";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
 
@@ -80,7 +80,7 @@ public class JDBCMealDAO implements MealDAO{
     public Meal retrieveMealByID(int mealId) {
         Meal theMeal = new Meal();
 
-        String sql = "SELECT meal_id, meal_name, breakfastrecipe.*, lunchrecipe.*, dinnerrecipe.* " +
+        String sql = "SELECT meal_id, meal_name, breakfastrecipe.*, lunchrecipe.recipe_id as lunch_id, lunchrecipe.user_id as lunch_user_id, lunchrecipe.recipe_name as lunch_recipe_name, lunchrecipe.ready_in_minutes as lunch_ready_in_minutes, lunchrecipe.serving as lunch_serving, lunchrecipe.recipe_ingredients as lunch_recipe_ingredients, lunchrecipe.image as lunch_image, lunchrecipe.instructions as lunch_instructions, dinnerrecipe.recipe_id as dinner_id, dinnerrecipe.user_id as dinner_user_id, dinnerrecipe.recipe_name as dinner_recipe_name, dinnerrecipe.ready_in_minutes as dinner_ready_in_minutes, dinnerrecipe.serving as dinner_serving, dinnerrecipe.recipe_ingredients as dinner_recipe_ingredients, dinnerrecipe.image as dinner_image, dinnerrecipe.instructions as dinner_instructions " +
                 "FROM meal " +
                 "JOIN recipe AS breakfastrecipe ON breakfast_id = breakfastrecipe.recipe_id " +
                 "JOIN recipe AS lunchrecipe ON lunch_id = lunchrecipe.recipe_id " +

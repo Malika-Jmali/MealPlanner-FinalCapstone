@@ -15,6 +15,7 @@
       <input type="text" name="recipe" class="search-field category" v-model="typeKeyword" />
       <button id="submitSearch" v-on:click="getRecipeList" button type="submit">Search</button>
       </div>
+      
     </div>
     
     <div class="cards">
@@ -149,6 +150,7 @@ label {
   background-color: #000;
   transition: all 1s ease 0s;
   cursor: pointer;
+  color: gray;
 }
 
 a {

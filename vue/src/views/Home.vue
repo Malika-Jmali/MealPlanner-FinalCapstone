@@ -1,13 +1,13 @@
 <template>
 <!-- container div -->
-<div class = "container">
+<div class = "container-home">
   <!-- welcome banner -->
   <div class="home">
     <div class="text-box">
       <h1 class="forktastic">Welcome to Forktastic</h1>
       <p class="header-paragraph">Customizable meal plans and searchable library of recipes to make meal planning as easy as possible. </p>
       <br>
-      <router-link :to="{ name: 'register' }" class="signup-button" button-type="submit">Click here to sign up</router-link>
+      <router-link v-if="$store.state.token == '' " v-bind:to="{ name: 'register' }" class="signup-button" button-type="submit">Click here to sign up</router-link>
      </div>
   </div>
    <!-- app features -->
@@ -61,19 +61,23 @@
   <div class="recipes">
     <h1>Sample Recipes</h1>
     <p>Some of our most popular recipes:</p>
-
+  
     <div class="row">
       <div class="recipes-col">
+        <h3>Beer Can Chicken</h3> 
         <img src="../assets/beercanchicken.jpg" alt="beer can chicken">
-          <h3>Beer Can Chicken</h3> 
+          
       </div>
             <div class="recipes-col">
+              <h3>Moroccan Couscous</h3>
         <img src="../assets/couscous.jpg" alt="moroccan couscous">
-        <h3>Moroccan Couscous</h3>
+        
         </div>
+        
             <div class="recipes-col">
+              <h3>Chocolate Cookies</h3>
         <img src="../assets/cookies.jpg" alt="chocolate cookies">
-        <h3>Chocolate Cookies</h3>
+        
       </div>
     </div>
   </div>
@@ -81,7 +85,7 @@
   <div class="footer">
     <h4>Contact Us</h4>
     <p>We want to know what you think! To ask questions or make suggestions, please connect with
-      us on social media! </p>
+      us on social media: </p>
       <div class="icons">
         <i class="fab fa-facebook-f"></i>
         <i class="fab fa-twitter"></i>
@@ -98,7 +102,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 
 /* welcome banner */
 
@@ -109,13 +113,14 @@ export default {
   background-image:linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ),url('../assets/louis-hansel-restaurant-photographer-cdR6i9i4jwI-unsplash.jpg');
   background-position: center;
   background-size: cover;
-  
+  text-shadow: 3px 3px rgba(0,0,0,0.2);
 }
 
 .forktastic {
   margin-top: 150px;
   color: #fff;
   font-size: 100px;
+  
 }
 
 .header-paragraph {
@@ -155,6 +160,7 @@ a {
   background-color: #000;
   transition: all 1s ease 0s;
   cursor: pointer;
+  color: gray;
 }
 
 /* features */
@@ -183,6 +189,7 @@ p {
   margin-top: 5%;
   display: flex;
   justify-content: space-between;
+
 }
 
 .feature-col {
@@ -266,7 +273,7 @@ h3 {
   width: 90%;
   margin: auto;
   text-align: center;
-  padding-top: 50px;
+  padding-top: 40px;
 }
 
 .recipes-col {
@@ -291,12 +298,13 @@ h3 {
   text-align: center;
   background: lightgray;
   opacity: 0.7;
-  margin-bottom: -50px;
-  
+  margin-top: 200px;
+  margin-bottom: -100px;
+  width: 100%;
 }
 
 .footer h4 {
-  padding-top: 40px;
+  padding-top: 30px;
   margin: 40px 0 25px 0;
 }
 

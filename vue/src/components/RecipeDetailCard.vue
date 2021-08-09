@@ -1,8 +1,8 @@
 <template>
-<div class = "body">
+<div class = "body-recipe-card">
  <div class = "recipe-card">
    <div class="image-sidebar">
-   <img v-bind:src="recipes[0].image" alt="food image" />
+   <img class = "recipe-detail-img" v-bind:src="recipes[0].image" alt="food image" />
    </div>
    <div class="recipe-main">
     <p><span class="title">Recipe Name:</span> {{recipes[0].title}}</p>
@@ -33,5 +33,12 @@ a {
   color: gray;
   text-decoration: none;
 }
+
+.recipe-detail-img {
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+
+}
+
 
 </style>
