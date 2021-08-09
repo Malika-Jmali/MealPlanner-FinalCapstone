@@ -1,6 +1,6 @@
 <template>
 
-      <div v-bind="getMyMeals()">
+      <div class = "get-meals" v-bind="getMyMeals()">
       <meal-plan-card v-bind:meal="meal" v-for="meal in meals" v-bind:key="meal.id"/>
       
   </div>

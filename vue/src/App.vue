@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <the-header />
-    <the-header  v-if="$store.state.token == '' " />
+    <!-- <the-header  v-if="$store.state.token == '' " /> -->
     <router-view />
     </div>
   

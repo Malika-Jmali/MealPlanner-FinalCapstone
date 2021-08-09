@@ -13,8 +13,8 @@
             <option value="4">Vegetarian stew</option>
             <option value="5">Baked Fish with Garlic and Basil</option>
             <option value="6">Shakshuka</option>
-            <option value="7">Baked Fish with Garlic and Basil</option>
-            <option value="8">Mediterranean Lentil Salad Recipe</option>
+            <option value="7">Mediterranean Lentil Salad Recipe</option>
+            <option value="8">Keto Italian breakfast casserole</option>
             <option value="9">Keto taco meatza</option>
             <option value="10">Keto chicken zoodle al limone</option>
         </select>
@@ -28,8 +28,8 @@
             <option value="4">Vegetarian stew</option>
             <option value="5">Baked Fish with Garlic and Basil</option>
             <option value="6">Shakshuka</option>
-            <option value="7">Baked Fish with Garlic and Basil</option>
-            <option value="8">Mediterranean Lentil Salad Recipe</option>
+            <option value="7">Mediterranean Lentil Salad Recipe</option>
+            <option value="8">Keto Italian breakfast casserole</option>
             <option value="9">Keto taco meatza</option>
             <option value="10">Keto chicken zoodle al limone</option>
         </select>
@@ -43,8 +43,8 @@
             <option value="4">Vegetarian stew</option>
             <option value="5">Baked Fish with Garlic and Basil</option>
             <option value="6">Shakshuka</option>
-            <option value="7">Baked Fish with Garlic and Basil</option>
-            <option value="8">Mediterranean Lentil Salad Recipe</option>
+            <option value="7">Mediterranean Lentil Salad Recipe</option>
+            <option value="8">Keto Italian breakfast casserole</option>
             <option value="9">Keto taco meatza</option>
             <option value="10">Keto chicken zoodle al limone</option>
         </select>

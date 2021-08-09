@@ -1,17 +1,17 @@
 <template>
-  <div class = "body">
+  <div class = "spoon-body">
     <!--  when we search for a recipe we get the recipe id so we can use that to access the recipe's details and show them
           on a "new" page (a new route) 
           -->
-        <div class="header">
+        <div class="spoon-header">
           <div class = "form">
-    <h1>Search Our Recipes for FREE</h1>
+    <h1 class = "search-recipes">Search Our Recipes for FREE</h1>
     <!-- <button v-on:click="getData">Click Here For A Recipe!</button> -->
 
-      <label for="recipe">Search Recipes By Name:</label>
+      <label for="recipe" class = "recipe-name">Search Recipes By Name:</label>
       <input type="text" name="recipe" class="search-field name" v-model="search" />
 
-      <label for="recipe">Search Recipes By Category:</label>
+      <label for="recipe" class = "recipe-category">Search Recipes By Category:</label>
       <input type="text" name="recipe" class="search-field category" v-model="typeKeyword" />
       <button id="submitSearch" v-on:click="getRecipeList" button type="submit">Search</button>
       </div>
@@ -20,8 +20,8 @@
     
     <div class="cards">
     <div v-for="result in resultArr" v-bind:key="result.id">
-    <p class = "links"><router-link v-bind:to="{ name: 'recipeDetails', params:{id: result.id}}"> {{ result.title }} </router-link></p>
-      <img v-bind:src="result.image" alt="food image" />
+    <p class = "links"><router-link class = "recipe-details" v-bind:to="{ name: 'recipeDetails', params:{id: result.id}}"> {{ result.title }} </router-link></p>
+      <img class = "spoonacular-image" v-bind:src="result.image" alt="food image" />
       </div>
     </div>
   </div>
@@ -86,26 +86,26 @@ export default {
 
 <style scoped>
 
-.body {
+.spoon-body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-.header {
+.spoon-header {
   margin: 400px 0 0 0;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-h1 {
+.search-recipes {
   margin-top: -300px;
   font-size: 40px;
   color: gray;
 }
 
-label {
+.recipe-name, .recipe-category {
   color: gray;
 }
 
@@ -153,12 +153,12 @@ label {
   color: gray;
 }
 
-a {
+.recipe-details {
   text-decoration: none;
   color: gray;
 }
 
-a:hover {
+.recipe-details:hover {
   color: black;
 }
 
@@ -170,7 +170,7 @@ a:hover {
   gap: 20px;
 }
 
-img {
+.spoonacular-image {
   
    border-radius: 10px;
    box-shadow: 0 0 20px 0 rgba(0,0,0,0.2), 0 5px 5px 0 rgba(0,0,0,0.24);

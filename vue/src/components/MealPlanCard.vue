@@ -30,6 +30,15 @@ export default {
 
 }
 
+.meal-main a {
+  color: gray;
+  text-decoration: none;
+}
+
+.meal-main a:hover {
+  color: black;
+}
+
 
 
 </style>

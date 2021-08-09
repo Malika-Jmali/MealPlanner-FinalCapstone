@@ -2,12 +2,12 @@
   <div class="container-header">
         <router-link v-if="$store.state.token == '' " v-bind:to="{name: 'home'}" class="logo">FORKTASTIC</router-link>
         <router-link v-if="$store.state.token != '' " v-bind:to="{name: 'userMeals'}" class="logo">Bienvenue dans notre meal planner, {{$store.state.user.username}}!</router-link>
-        <nav>
-        <router-link v-bind:to="{name: 'home'}">Home</router-link>
-         <router-link v-bind:to="{name: 'spoonacular'}">Search Recipes</router-link>
-          <router-link v-bind:to="{name:'userMeals'}" v-if="$store.state.token != ''">My Meals</router-link> 
-         <router-link v-bind:to="{ name: 'login' }" v-if="$store.state.token == ''">Login</router-link>
-          <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
+        <nav class = "navigation">
+        <router-link class = "header-link" v-bind:to="{name: 'home'}">Home</router-link>
+         <router-link class = "header-link" v-bind:to="{name: 'spoonacular'}">Search Recipes</router-link>
+          <router-link class = "header-link" v-bind:to="{name:'userMeals'}" v-if="$store.state.token != ''">My Meals</router-link> 
+         <router-link class = "header-link" v-bind:to="{ name: 'login' }" v-if="$store.state.token == ''">Login</router-link>
+          <router-link class = "header-link" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
       </nav>
   </div>
 </template>
@@ -46,7 +46,7 @@ export default {
     font-size: 1rem;
 }
 
-a {
+.header-link {
     font-family: 'Poppins';
     text-decoration: none;
     color: gray;
@@ -54,7 +54,7 @@ a {
     margin-left: 2rem;  
 }
 
-a:hover {
+.header-link:hover {
     color: black;
 }
 
