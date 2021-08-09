@@ -66,11 +66,10 @@ public class JDBCMealDAO implements MealDAO{
 
     @Override
     public Meal addMeal(int userID, Meal meal) {
-//        Meal myMeal = new Meal();
 
-        int mealID = getNextMealId();
-    public void addMeal(int userID, Meal meal) {
-        //int mealID = getNextMealId();
+
+        
+
         meal.setMealId(getNextMealId());
 
 
