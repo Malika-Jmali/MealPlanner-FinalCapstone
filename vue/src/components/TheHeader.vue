@@ -26,32 +26,31 @@ export default {
 
 <style scoped>
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
-
 .container {
     box-sizing: border-box;
+    top: 0; 
+    left: 0;
+    height: 4rem;
     position: fixed;
-    top: 0; left: 0;
     width: 100%;
+    z-index: 10000;
     background: #fff;
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
-    padding: 2rem 9%; 
+    padding: 1rem 2%; 
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 1000;
-    
 }
 
 .logo {
-    font-size: 2rem;
+    font-size: 1rem;
 }
 
 a {
     font-family: 'Poppins';
     text-decoration: none;
     color: gray;
-    font-size: 1.5rem;
+    font-size: 1rem;
     margin-left: 2rem;  
 }
 

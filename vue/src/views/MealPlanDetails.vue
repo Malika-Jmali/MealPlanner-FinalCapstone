@@ -1,15 +1,15 @@
 <template>
 <div>
-<user-meals/>
+<meal-plan-details/>
 </div>
   
 </template>
 
 <script>
-import UserMeals from '../components/UserMeals'
+import MealPlanDetails from '../components/MealPlanDetails'
 export default {
 components: {
-    UserMeals
+    MealPlanDetails
   }
 }
 </script>

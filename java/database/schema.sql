@@ -2,6 +2,7 @@ BEGIN TRANSACTION;
 DROP TABLE IF EXISTS meal;
 DROP TABLE IF EXISTS recipe;
 DROP TABLE IF EXISTS users;
+--DROP SEQUENCE IF EXISTS seq_meal_id;
 DROP SEQUENCE IF EXISTS seq_user_id;
 
 CREATE SEQUENCE seq_user_id
@@ -9,6 +10,12 @@ CREATE SEQUENCE seq_user_id
   NO MAXVALUE
   NO MINVALUE
   CACHE 1;
+
+--CREATE SEQUENCE seq_meal_id
+--INCREMENT BY 1
+--NO MAXVALUE
+  --NO MINVALUE
+  --CACHE 1;
   
 
 
@@ -36,6 +43,7 @@ CREATE TABLE recipe (
 
 
 CREATE TABLE meal (
+	--meal_id int DEFAULT nextval('seq_meal_id'::regclass) NOT NULL,
 	meal_id serial NOT NULL,
 	user_id int NOT NULL,
 	meal_name varchar(50) NOT NULL,
@@ -53,21 +61,11 @@ CREATE TABLE meal (
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
 
-INSERT INTO recipe (recipe_id, user_id, recipe_name, ready_in_minutes, serving, recipe_ingredients, image, instructions) VALUES (1,1, 'Breakfast Vegetable Scramble', '15', '2', 
-'2 tablespoons olive oil,1/2 red onion,1 red bell pepper,4 cups baby kale or spinach,1 tablespoon chopped chives or other fresh herbs,4 eggs or this Tofu Scramble,¼ cup shredded Colby cheese, ¼ teaspoon kosher salt,Fresh ground black pepper,
-Avocado slices',
-'https://www.acouplecooks.com/wp-content/uploads/2020/09/Veggie-Breakfast-Scramble-012.jpg', 
-'Prep the vegetables: Thinly slice the red onion. Large dice the bell pepper. Prep the eggs: In a medium bowl, crack the eggs and whisk them together until well-beaten. Stir in the shredded cheese, fresh herbs, kosher salt, and plenty of fresh ground pepper. Or, complete Step 1 of the Tofu Scramble. Cook the vegetables: Heat the olive oil in a large skillet over medium high heat. When hot, add the onion and peppers. Cook 3 to 4 minutes until tender and just starting to brown, stirring occasionally. Reduce heat to low. Add a pinch of salt and the baby greens. Cook for 30 seconds until wilted. Remove and set aside. Cook the eggs: Keep heat on low. Pour in the eggs. Cook for 20 to 30 seconds. When the eggs just start to set, use a flat spatula to scrape sections of eggs, gently stirring constantly until cooked but still soft, about 1 minute. Or, complete Step 2 of the Tofu Scramble. Add the vegetables and serve: Add the veggies back to the pan with the eggs or tofu. Stir for a few seconds until combined and warmed. Serve immediately.');
+INSERT INTO recipe (recipe_id, user_id, recipe_name, ready_in_minutes, serving, recipe_ingredients, image, instructions) VALUES (DEFAULT, 1, 'Breakfast Vegetable Scramble', '15', '2', '2 tablespoons olive oil,1/2 red onion,1 red bell pepper,4 cups baby kale or spinach,1 tablespoon chopped chives or other fresh herbs,4 eggs or this Tofu Scramble,¼ cup shredded Colby cheese, ¼ teaspoon kosher salt,Fresh ground black pepper, Avocado slices','https://www.acouplecooks.com/wp-content/uploads/2020/09/Veggie-Breakfast-Scramble-012.jpg', 'Prep the vegetables: Thinly slice the red onion. Large dice the bell pepper. Prep the eggs: In a medium bowl, crack the eggs and whisk them together until well-beaten. Stir in the shredded cheese, fresh herbs, kosher salt, and plenty of fresh ground pepper. Or, complete Step 1 of the Tofu Scramble. Cook the vegetables: Heat the olive oil in a large skillet over medium high heat. When hot, add the onion and peppers. Cook 3 to 4 minutes until tender and just starting to brown, stirring occasionally. Reduce heat to low. Add a pinch of salt and the baby greens. Cook for 30 seconds until wilted. Remove and set aside. Cook the eggs: Keep heat on low. Pour in the eggs. Cook for 20 to 30 seconds. When the eggs just start to set, use a flat spatula to scrape sections of eggs, gently stirring constantly until cooked but still soft, about 1 minute. Or, complete Step 2 of the Tofu Scramble. Add the vegetables and serve: Add the veggies back to the pan with the eggs or tofu. Stir for a few seconds until combined and warmed. Serve immediately.');
 
-INSERT INTO recipe (recipe_id, user_id, recipe_name, ready_in_minutes, serving, recipe_ingredients, image, instructions) VALUES (2, 1, 'Garden Fresh Flatbread', '25','4', 
-'8.8 oz pkg naan thaw if frozen,¼ cup prepared basil pesto,1 cup red tomatoes halved,½ red bell pepper stemmed seeded and sliced,¼ medium zucchini thinly sliced,¼ small red onion thinly sliced,2 oz fresh mozzarella cheese shredded*,2 Tbsp balsamic glaze,2 Tbsp chopped fresh basil,',
-'https://fruitsandveggies.org/wp-content/uploads/2021/06/Garden-Fresh-Flatbread-Meghan-Sedivy-407x320.jpg',
-'Preheat oven to 400 degrees F. Place naan on a large baking sheet. Brush with pesto. Top with tomatoes, bell pepper, zucchini, red onion, corn, and cheese. Bake for 10 to 12 minutes or until vegetables are tender and cheese is melted. Drizzle pizza with balsamic glaze and top with basil. Sprinkle with crushed red pepper, if desired.');
+INSERT INTO recipe (recipe_id, user_id, recipe_name, ready_in_minutes, serving, recipe_ingredients, image, instructions) VALUES (2, 1, 'Garden Fresh Flatbread', '25','4', '8.8 oz pkg naan thaw if frozen,¼ cup prepared basil pesto,1 cup red tomatoes halved,½ red bell pepper stemmed seeded and sliced,¼ medium zucchini thinly sliced,¼ small red onion thinly sliced,2 oz fresh mozzarella cheese shredded*,2 Tbsp balsamic glaze,2 Tbsp chopped fresh basil,','https://fruitsandveggies.org/wp-content/uploads/2021/06/Garden-Fresh-Flatbread-Meghan-Sedivy-407x320.jpg','Preheat oven to 400 degrees F. Place naan on a large baking sheet. Brush with pesto. Top with tomatoes, bell pepper, zucchini, red onion, corn, and cheese. Bake for 10 to 12 minutes or until vegetables are tender and cheese is melted. Drizzle pizza with balsamic glaze and top with basil. Sprinkle with crushed red pepper, if desired.');
 
-INSERT INTO recipe (recipe_id, user_id, recipe_name, ready_in_minutes, serving, recipe_ingredients, image, instructions) VALUES (3, 1, 'Sesame Garlic Ramen Noodles', '25', '4',
-'3 (3 oz) packages instant ramen noodles, flavor packets discarded,¼ cup low sodium soy sauce,¼ cup oyster sauce,1 tbsp rice vinegar,1 tbsp brown sugar (optional),½ -1 tsp chili sauce like sambal or sriracha,¼ cup water,2 tbsp toasted sesame oil,4 cloves garlic minced about 2 tsp,1 tsp freshly grated ginger,4-6 green onions thinly sliced,1 tsp sesame seeds',
-'https://images.themodernproper.com/billowy-turkey/production/posts/2020/Sesame-Garlic-Ramen-Noodles-15.jpg?w=595&auto=compress%2Cformat&fit=crop&fp-x=0.5&fp-y=0.5&dm=1600182904&s=d161637af60ff7841f9c8ae07618fe1b',
-'In a large pot of boiling water, cook ramen according to package, about 3-4 minutes; drain well. In a small bowl, whisk together soy sauce, oyster sauce, rice vinegar, brown sugar, chili sauce and water. Heat sesame oil in a large skillet set over medium heat. Stir in garlic and ginger until fragrant, about 1 minute. Pour in the bowl of sauce and simmer for 3-4 minutes. Stir in cooked ramen noodles until heated through and evenly coated in sauce, about 3 minutes. Garnish with green onions and sesame seeds.');
+INSERT INTO recipe (recipe_id, user_id, recipe_name, ready_in_minutes, serving, recipe_ingredients, image, instructions) VALUES (3, 1, 'Sesame Garlic Ramen Noodles', '25', '4','3 (3 oz) packages instant ramen noodles, flavor packets discarded,¼ cup low sodium soy sauce,¼ cup oyster sauce,1 tbsp rice vinegar,1 tbsp brown sugar (optional),½ -1 tsp chili sauce like sambal or sriracha,¼ cup water,2 tbsp toasted sesame oil,4 cloves garlic minced about 2 tsp,1 tsp freshly grated ginger,4-6 green onions thinly sliced,1 tsp sesame seeds', 'https://images.themodernproper.com/billowy-turkey/production/posts/2020/Sesame-Garlic-Ramen-Noodles-15.jpg?w=595&auto=compress%2Cformat&fit=crop&fp-x=0.5&fp-y=0.5&dm=1600182904&s=d161637af60ff7841f9c8ae07618fe1b', 'In a large pot of boiling water, cook ramen according to package, about 3-4 minutes; drain well. In a small bowl, whisk together soy sauce, oyster sauce, rice vinegar, brown sugar, chili sauce and water. Heat sesame oil in a large skillet set over medium heat. Stir in garlic and ginger until fragrant, about 1 minute. Pour in the bowl of sauce and simmer for 3-4 minutes. Stir in cooked ramen noodles until heated through and evenly coated in sauce, about 3 minutes. Garnish with green onions and sesame seeds.');
 
 INSERT INTO recipe (recipe_id, user_id, recipe_name, ready_in_minutes, serving, recipe_ingredients, image, instructions) VALUES (4,1, 'Vegeterian stew', '27', '5',
 '¼ Cup(s) (59 mL) Olive oil,1 Onion (sliced),1 Potato (diced),3 Small carrots (diced),2 Garlic cloves (minced),2 tsp (10 mL) Vegeta powder – 1 1/3 bouillon cubes (Knorr/Maggi) can be used instead,1 Cup (237 mL) Water (hot),3 Tomatoes (blended),2 Cups (260 g) Brussels sprouts – Cabbage can be used instead,1 Cup (237 mL) Vegetable stock – Optional if serving the stew with grits or couscous,5 Packed Cups (375 g) Fresh spinach leaves (chopped),½ Cup(s) (50 g) Fresh parsley (chopped)',
@@ -115,6 +113,8 @@ INSERT INTO meal (meal_id, user_id, meal_name, breakfast_id, lunch_id, dinner_id
 
 
 
-GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO final_capstone_appuser;
+--GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO final_capstone_appuser;
+ALTER SEQUENCE meal_meal_id_seq RESTART 1000;
+
 COMMIT TRANSACTION;
 

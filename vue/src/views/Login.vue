@@ -56,13 +56,11 @@ export default {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
 
 #container {
  padding: 0;
  margin: 0;
  box-sizing: border-box;
- 
 }
 
 .form-signin {
@@ -101,7 +99,7 @@ a:hover {
 }
 
 .form-control:hover {
-  background-color:#D3F8F9;
+  background-color:#fcbaf3;
   transition: all 1s ease 0s;
 }
 
@@ -122,6 +120,7 @@ button {
 button:hover, button:active, button:focus {
   background-color: #000;
   transition: all 1s ease 0s;
+  cursor: pointer;
 }
 
 </style>

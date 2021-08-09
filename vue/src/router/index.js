@@ -8,6 +8,7 @@ import store from '../store/index'
 import SpoonacularData from '../views/SpoonacularData'
 import RecipeDetails from '../views/RecipeDetails'
 import UserMeals from '../views/UserMeals'
+import MealPlanDetails from '../views/MealPlanDetails'
 
 Vue.use(Router)
 
@@ -81,8 +82,18 @@ const router = new Router({
       name: "userMeals",
       component: UserMeals,
       meta: {
-        requiresAuth: false
+        requiresAuth: true
       }
+    },
+
+    {
+      path: "/mealPlanDetails/:id",
+      name: "mealPlanDetails",
+      component: MealPlanDetails,
+      meta: {
+        requiresAuth: true
+      }
+
     }
       
   ]

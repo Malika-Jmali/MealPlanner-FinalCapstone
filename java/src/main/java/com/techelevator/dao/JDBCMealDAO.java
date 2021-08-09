@@ -22,16 +22,16 @@ public class JDBCMealDAO implements MealDAO{
     }
 
     @Override
-    public List<Meal> getMeals(int userID) {
+    public List<Meal> getMeals(int userId) {
         List<Meal> myMeals = new ArrayList<>();
-        String sql= "SELECT meal_id, meal_name, breakfastrecipe.*, lunchrecipe.*, dinnerrecipe.* " +
+        String sql= "SELECT meal_id, meal_name, breakfastrecipe.*, lunchrecipe.recipe_id as lunch_id, lunchrecipe.user_id as lunch_user_id, lunchrecipe.recipe_name as lunch_recipe_name, lunchrecipe.ready_in_minutes as lunch_ready_in_minutes, lunchrecipe.serving as lunch_serving, lunchrecipe.recipe_ingredients as lunch_recipe_ingredients, lunchrecipe.image as lunch_image, lunchrecipe.instructions as lunch_instructions, dinnerrecipe.recipe_id as dinner_id, dinnerrecipe.user_id as dinner_user_id, dinnerrecipe.recipe_name as dinner_recipe_name, dinnerrecipe.ready_in_minutes as dinner_ready_in_minutes, dinnerrecipe.serving as dinner_serving, dinnerrecipe.recipe_ingredients as dinner_recipe_ingredients, dinnerrecipe.image as dinner_image, dinnerrecipe.instructions as dinner_instructions " +
                 "FROM meal " +
                 "JOIN recipe AS breakfastrecipe ON breakfast_id = breakfastrecipe.recipe_id " +
                 "JOIN recipe AS lunchrecipe ON lunch_id = lunchrecipe.recipe_id " +
                 "JOIN recipe AS dinnerrecipe ON dinner_id = dinnerrecipe.recipe_id " +
-                "WHERE meal.user_id = ?";
-        System.out.println(sql);
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userID);
+                "WHERE meal.meal_id = ?";
+
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
 
 
 
@@ -65,16 +65,43 @@ public class JDBCMealDAO implements MealDAO{
     }
 
     @Override
+<<<<<<< HEAD
     public Meal addMeal(int userID, Meal meal) {
 //        Meal myMeal = new Meal();
 
         int mealID = getNextMealId();
+=======
+    public void addMeal(int userID, Meal meal) {
+        //int mealID = getNextMealId();
+        meal.setMealId(getNextMealId());
+>>>>>>> 98c52195135686e2a615ccbe57ddbafaf693037c
 
         String sql = "INSERT INTO meal (meal_id, user_id, meal_name, breakfast_id, lunch_id, dinner_id) VALUES (?, ?, ?, ?, ?, ?)";
 
-        jdbcTemplate.update(sql, mealID, userID, meal.getMealName(), meal.getBreakFastID(), meal.getLunchID(), meal.getDinnerID());
+        jdbcTemplate.update(sql, meal.getMealId(), userID, meal.getMealName(), meal.getBreakfastID(), meal.getLunchID(), meal.getDinnerID());
 
-        return meal;
+
+    }
+
+    @Override
+    public Meal retrieveMealByID(int mealId) {
+        Meal theMeal = new Meal();
+
+        String sql = "SELECT meal_id, meal_name, breakfastrecipe.*, lunchrecipe.*, dinnerrecipe.* " +
+                "FROM meal " +
+                "JOIN recipe AS breakfastrecipe ON breakfast_id = breakfastrecipe.recipe_id " +
+                "JOIN recipe AS lunchrecipe ON lunch_id = lunchrecipe.recipe_id " +
+                "JOIN recipe AS dinnerrecipe ON dinner_id = dinnerrecipe.recipe_id " +
+                "WHERE meal.meal_id = ?";
+
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, mealId);
+
+        while(results.next()){
+            theMeal = mapRowToMeal(results);
+        }
+
+
+        return theMeal;
     }
 
     private Meal mapRowToMeal(SqlRowSet results){
@@ -94,23 +121,27 @@ public class JDBCMealDAO implements MealDAO{
      breakfastRecipe.setImage(results.getString("image"));
      breakfastRecipe.setInstructions(results.getString("instructions"));
 
-     lunchRecipe.setRecipeId(results.getInt("recipe_id"));
-     lunchRecipe.setUserId(results.getInt("user_id"));
-     lunchRecipe.setRecipeName(results.getString("recipe_name"));
-     lunchRecipe.setReadyInMinutes(results.getString("ready_in_minutes"));
-     lunchRecipe.setServing(results.getString("serving"));
-     lunchRecipe.setIngredients(results.getString("recipe_ingredients"));
-     lunchRecipe.setImage(results.getString("image"));
-     lunchRecipe.setInstructions(results.getString("instructions"));
+     lunchRecipe.setRecipeId(results.getInt("lunch_id"));
+     lunchRecipe.setUserId(results.getInt("lunch_user_id"));
+     lunchRecipe.setRecipeName(results.getString("lunch_recipe_name"));
+     lunchRecipe.setReadyInMinutes(results.getString("lunch_ready_in_minutes"));
+     lunchRecipe.setServing(results.getString("lunch_serving"));
+     lunchRecipe.setIngredients(results.getString("lunch_recipe_ingredients"));
+     lunchRecipe.setImage(results.getString("lunch_image"));
+     lunchRecipe.setInstructions(results.getString("lunch_instructions"));
 
-     dinnerRecipe.setRecipeId(results.getInt("recipe_id"));
-     dinnerRecipe.setUserId(results.getInt("user_id"));
-     dinnerRecipe.setRecipeName(results.getString("recipe_name"));
-     dinnerRecipe.setReadyInMinutes(results.getString("ready_in_minutes"));
-     dinnerRecipe.setServing(results.getString("serving"));
-     dinnerRecipe.setIngredients(results.getString("recipe_ingredients"));
-     dinnerRecipe.setImage(results.getString("image"));
-     dinnerRecipe.setInstructions(results.getString("instructions"));
+     dinnerRecipe.setRecipeId(results.getInt("dinner_id"));
+     dinnerRecipe.setUserId(results.getInt("dinner_user_id"));
+     dinnerRecipe.setRecipeName(results.getString("dinner_recipe_name"));
+     dinnerRecipe.setReadyInMinutes(results.getString("dinner_ready_in_minutes"));
+     dinnerRecipe.setServing(results.getString("dinner_serving"));
+     dinnerRecipe.setIngredients(results.getString("dinner_recipe_ingredients"));
+     dinnerRecipe.setImage(results.getString("dinner_image"));
+     dinnerRecipe.setInstructions(results.getString("dinner_instructions"));
+
+     newMeal.setBreakfastID(breakfastRecipe.getRecipeId());
+        newMeal.setLunchID(lunchRecipe.getRecipeId());
+        newMeal.setDinnerID(dinnerRecipe.getRecipeId());
 
     newMeal.setBreakfastRecipe(breakfastRecipe);
     newMeal.setLunchRecipe(lunchRecipe);
