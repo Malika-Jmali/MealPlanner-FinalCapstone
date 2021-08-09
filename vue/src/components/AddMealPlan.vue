@@ -53,8 +53,6 @@
     <input type="submit" value="Save">
     <input type="button" value="Cancel">
 </form>
-    
-
 </template>
 
 
@@ -70,7 +68,7 @@ export default {
 
 .form-element {
 
-margin-top: 200px;
+margin-top: 100px;
 
 }
 
