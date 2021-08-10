@@ -1,7 +1,10 @@
 import axios from 'axios';
 
-export default {
 
+export default {
+  deleteMealPlan(id){
+axios.delete('/deleteMeals/' + id)
+  },
   getMyRecipes(){
     return axios.get('/recipes')
   },
