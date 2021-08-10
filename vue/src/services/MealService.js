@@ -2,6 +2,10 @@ import axios from 'axios';
 
 export default {
 
+  getMyRecipes(){
+    return axios.get('/recipes')
+  },
+
   addMeal(meal) {
    axios.post('/meals', meal);
   },
