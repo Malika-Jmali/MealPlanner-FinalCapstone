@@ -101,6 +101,16 @@ public class JDBCMealDAO implements MealDAO{
         return theMeal;
     }
 
+    @Override
+    public void deleteMealPlanById(int id) {
+
+        String sql = "DELETE FROM meal WHERE meal_id = ?";
+
+        jdbcTemplate.update(sql, id);
+    }
+
+    //DELETE FROM meal WHERE meal_id = ?
+
     private Meal mapRowToMeal(SqlRowSet results){
 
         Meal newMeal = new Meal();

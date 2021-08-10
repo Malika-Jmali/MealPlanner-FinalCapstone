@@ -14,4 +14,6 @@ public interface MealDAO {
 
     Meal retrieveMealByID (int mealId);
 
+    void deleteMealPlanById(int id);
+
 }
