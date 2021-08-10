@@ -66,7 +66,7 @@ public class MealController {
     }
 
 
-    @RequestMapping(path = "/daleteMeals/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(path = "/deleteMeals/{id}", method = RequestMethod.DELETE)
     public void deleteMealPlanById(@PathVariable Integer id) {
         mealDAO.deleteMealPlanById(id);
     }
