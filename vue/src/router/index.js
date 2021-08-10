@@ -110,7 +110,7 @@ const router = new Router({
     },
    
     {
-      path: "/updateMealPlan",
+      path: "/updateMealPlan/:id",
       name: "updateMealPlan",
       component: UpdateMealPlan,
       meta: {
