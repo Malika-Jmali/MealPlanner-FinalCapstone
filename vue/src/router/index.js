@@ -10,7 +10,7 @@ import RecipeDetails from '../views/RecipeDetails'
 import UserMeals from '../views/UserMeals'
 import MealPlanDetails from '../views/MealPlanDetails'
 import AddMealPlan from '../views/AddMealPlan'
-import TestAddMeal from '../views/TestAddMeal'
+
 
 
 Vue.use(Router)
@@ -108,15 +108,7 @@ const router = new Router({
       }
 
     },
-    {
-      path: "/testAddMeal",
-      name: "testAddMeal",
-      component: TestAddMeal,
-      meta: {
-        requiresAuth: false
-      }
-
-    }
+   
       
   ]
 
