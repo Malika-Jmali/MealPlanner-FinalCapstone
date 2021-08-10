@@ -12,19 +12,19 @@
   </div>
    <!-- app features -->
   <div class="features">
-    <h1>App Features</h1>
+    <h1 class = "headline">App Features</h1>
     <div class="row">
       <div class="feature-col">
         <h2>Free Recipe Search</h2>
-        <p>Search the database of hundreds of recipes by name and category, even without an account.</p>
+        <p class = "home-paragraph">Search the database of hundreds of recipes by name and category, even without an account.</p>
       </div>
        <div class="feature-col">
         <h2>Meal Planning</h2>
-        <p>Create and customize meal plans that fit your dietary needs.</p>
+        <p class = "home-paragraph">Create and customize meal plans that fit your dietary needs.</p>
       </div>
        <div class="feature-col">
         <h2>Weekly Newsletter</h2>
-        <p>Be the first to know when new recipes are added or our new meal plans.</p>
+        <p class = "home-paragraph">Be the first to know when new recipes are added or our new meal plans.</p>
       </div>
     </div>
     </div>
@@ -32,8 +32,8 @@
     <!-- categories -->
 
     <div class="categories">
-      <h1>Meal Plan Categories</h1>
-      <p>Choose from any number of our categories, including:</p>
+      <h1 class = "headline">Meal Plan Categories</h1>
+      <p class = "home-paragraph">Choose from any number of our categories, including:</p>
 
       <div class="row">
         <div class="categories-col">
@@ -59,8 +59,8 @@
   <!-- sample recipes -->
 
   <div class="recipes">
-    <h1>Sample Recipes</h1>
-    <p>Some of our most popular recipes:</p>
+    <h1 class = "headline">Sample Recipes</h1>
+    <p class = "home-paragraph">Some of our most popular recipes:</p>
   
     <div class="row">
       <div class="recipes-col">
@@ -84,7 +84,7 @@
   <!-- footer -->
   <div class="footer">
     <h4>Contact Us</h4>
-    <p>We want to know what you think! To ask questions or make suggestions, please connect with
+     <p class = "home-paragraph">We want to know what you think! To ask questions or make suggestions, please connect with
       us on social media: </p>
       <div class="icons">
         <i class="fab fa-facebook-f"></i>
@@ -113,20 +113,22 @@ export default {
   background-image:linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ),url('../assets/louis-hansel-restaurant-photographer-cdR6i9i4jwI-unsplash.jpg');
   background-position: center;
   background-size: cover;
-  text-shadow: 3px 3px rgba(0,0,0,0.2);
+  text-align: center;
+  
 }
 
 .forktastic {
   margin-top: 150px;
   color: #fff;
   font-size: 100px;
-  
+  text-shadow: 1px 1px #000;
 }
 
 .header-paragraph {
   color: white;
   font-size: 20px;
   margin: 10px 0 40px;
+  text-shadow: 1px 1px #000;
 }
 
 a {
@@ -154,6 +156,7 @@ a {
   font-size: 14px;
   margin-bottom: 10px;
   box-shadow: 0 0 20px 0 rgba(0,0,0,0.2), 0 5px 5px 0 rgba(0,0,0,0.24);
+  text-decoration: none;
 }
 
 .signup-button:hover, .signup-button:active, .signup-button:focus {
@@ -173,12 +176,12 @@ a {
   
 }
 
-h1 {
+.headline {
   font-size: 35px;
   color: grey;
 }
 
-p {
+.home-paragraph {
   padding: 10px;
   line-height: 20px;
   font-size: 15px;

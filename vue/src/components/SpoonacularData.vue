@@ -103,6 +103,7 @@ export default {
   margin-top: -300px;
   font-size: 40px;
   color: gray;
+  text-align: center;
 }
 
 .recipe-name, .recipe-category {
@@ -168,6 +169,7 @@ export default {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+  text-align: center;
 }
 
 .spoonacular-image {
