@@ -70,4 +70,11 @@ public class MealController {
     public void deleteMealPlanById(@PathVariable Integer id) {
         mealDAO.deleteMealPlanById(id);
     }
+
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @RequestMapping(path = "/updateMeals", method = RequestMethod.PUT)
+    public void updateMealPlan(@Valid @RequestBody Meal meal) {
+        mealDAO.updateMealPlanById(meal);
+    }
 }

@@ -109,6 +109,14 @@ public class JDBCMealDAO implements MealDAO{
         jdbcTemplate.update(sql, id);
     }
 
+    @Override
+    public void updateMealPlanById(Meal meal) {
+        String sql = "UPDATE meal " +
+                "SET meal_name= ?, breakfast_id = ?, lunch_id = ?, dinner_id= ? " +
+                "WHERE meal_id= ?";
+        jdbcTemplate.update(sql,meal.getMealName(),meal.getBreakfastID(), meal.getLunchID(), meal.getDinnerID(), meal.getMealId());
+    };
+
     //DELETE FROM meal WHERE meal_id = ?
 
     private Meal mapRowToMeal(SqlRowSet results){
