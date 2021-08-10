@@ -1,55 +1,58 @@
 <template>
     <div class = "meal-plan-body">
-        <div>
-            <div>
+        
         <p v-bind="getUserMealsById()"></p>
+        <div class = "plan-recipe-box">
+            <div class = "image-box">
         <img v-bind:src= result.breakfastRecipe.image />
         </div>
-        <div>
-        <p>Recipe Name:  {{result.breakfastRecipe.recipeName}} </p>
-        <p>Ready In:  {{result.breakfastRecipe.readyInMinutes}} minutes </p>
-        <p>Servings: {{result.breakfastRecipe.recipeName}} </p>
-        <p> Ingredients: </p>
-         <div v-for="ingredient in result.breakfastRecipe.ingredients" v-bind:key="ingredient.id">
+        <h1 class = "recipe-title">Breakfast:</h1>
+        <p class = "recipe-details">Recipe Name:  {{result.breakfastRecipe.recipeName}}</p>
+        <p class = "recipe-details">Ready In:  {{result.breakfastRecipe.readyInMinutes}} minutes </p>
+        <p class = "recipe-details">Servings: {{result.breakfastRecipe.serving}} </p>
+        <p class = "recipe-details"> Ingredients: </p>
+         <div class = "plan-recipe-box" v-for="ingredient in result.breakfastRecipe.ingredients" v-bind:key="ingredient.id">
              <p>{{ingredient}}</p>
              </div>
-        <p>Instructions: {{result.breakfastRecipe.instructions}}</p>
+        <p class = "recipe-details">Instructions: {{result.breakfastRecipe.instructions}}</p>
         </div>
-                <div>
-            <div>
+        
+                <div  class = "plan-recipe-box">
+            <div class = "image-box">
         <img v-bind:src= result.lunchRecipe.image />
         </div>
-        <div>
-        <p>Recipe Name:  {{result.lunchRecipe.recipeName}} </p>
-        <p>Ready In:  {{result.lunchRecipe.readyInMinutes}} minutes </p>
-        <p>Servings: {{result.lunchRecipe.recipeName}} </p>
-        <p> Ingredients: </p>
-         <div v-for="ingredient in result.lunchRecipe.ingredients" v-bind:key="ingredient.id">
+        <h1 class = "meal-title">Lunch:</h1>
+        <p class = "recipe-details">Recipe Name:  {{result.lunchRecipe.recipeName}} </p>
+        <p class = "recipe-details">Ready In:  {{result.lunchRecipe.readyInMinutes}} minutes </p>
+        <p class = "recipe-details">Servings: {{result.lunchRecipe.serving}} </p>
+        <p class = "recipe-details"> Ingredients: </p>
+         <div class = "plan-recipe-box" v-for="ingredient in result.lunchRecipe.ingredients" v-bind:key="ingredient.id">
              <p>{{ingredient}}</p>
              </div>
-        <p>Instructions: {{result.lunchRecipe.instructions}}</p>
+        <p class = "recipe-details">Instructions: {{result.lunchRecipe.instructions}}</p>
         </div>
-        
-        </div>
-      </div>
-       <div>
-            <div>
+
+          <div class = "plan-recipe-box">
+            <div class = "image-box">
         <img v-bind:src= result.dinnerRecipe.image />
         </div>
-        <div>
-        <p>Recipe Name:  {{result.dinnerRecipe.recipeName}} </p>
-        <p>Ready In:  {{result.dinnerRecipe.readyInMinutes}} minutes </p>
-        <p>Servings: {{result.dinnerRecipe.recipeName}} </p>
-        <p> Ingredients: </p>
-         <div v-for="ingredient in result.dinnerRecipe.ingredients" v-bind:key="ingredient.id">
+        <h1 class = "meal-title">Dinner:</h1>
+        <p class = "recipe-details">Recipe Name:  {{result.dinnerRecipe.recipeName}} </p>
+        <p class = "recipe-details">Ready In:  {{result.dinnerRecipe.readyInMinutes}} minutes </p>
+        <p class = "recipe-details">Servings: {{result.dinnerRecipe.serving}} </p>
+        <p class = "recipe-details"> Ingredients: </p>
+         <div class = "plan-recipe-box" v-for="ingredient in result.dinnerRecipe.ingredients" v-bind:key="ingredient.id">
              <p>{{ingredient}}</p>
              </div>
-        <p>Instructions: {{result.dinnerRecipe.instructions}}</p>
+        <p class = "recipe-details">Instructions: {{result.dinnerRecipe.instructions}}</p>
         </div>
-        
-        </div>
+
       </div>
     
+        
+       
+      
+     
 </template>
 
 
@@ -84,11 +87,9 @@ export default {
 
 <style>
 
-
 .meal-plan-body {
- margin: 5rem;
- display: grid;
- place-items: center;
+    margin-top: 100px;
+    margin-left: 20px;
 }
 
 
