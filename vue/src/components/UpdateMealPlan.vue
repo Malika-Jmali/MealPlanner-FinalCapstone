@@ -2,14 +2,15 @@
  <div class = "update-body">
     <p v-bind="getMyRecipes()"></p>
     <p v-bind="getUserMealsById()"></p>
-    <form v-on:submit.prevent="submitMeal">
+    <form v-on:submit.prevent="submitChanges()">
       <div class="form-element">
         <label for="category">Update Your Meal Plan Name:</label>
-        <input id="category" type="text" v-model="updatedMeal.mealName" />
+        <input id="category" required type="text" :placeholder="currentMealPlan.mealName" v-model="updatedMeal.mealName" />
       </div>
       <div class="form-element">
+        <p>Your current Breakfast recipe: {{currentMealPlan.breakfastRecipe.recipeName}}</p>
         <label for="breakfast">Breakfast:</label>
-        <select id="breakfast" v-model="updatedMeal.breakfastID">
+        <select :id="currentMealPlan.breakfastID"  v-model="updatedMeal.breakfastID" >
           <option
             v-for="recipe in myRecipes"
             v-bind:key="recipe.id"
@@ -20,8 +21,9 @@
         </select>
       </div>
       <div class="form-element">
+        <p>Your current Lunch recipe: {{currentMealPlan.lunchRecipe.recipeName}}</p>
         <label for="lunch">Lunch:</label>
-        <select id="lunch" v-model="updatedMeal.lunchID">
+        <select id="lunch" v-model="updatedMeal.lunchID" required>
           <option
             v-for="recipe in myRecipes"
             v-bind:key="recipe.id"
@@ -32,8 +34,9 @@
         </select>
       </div>
       <div class="form-element">
+        <p>Your current Dinner recipe: {{currentMealPlan.dinnerRecipe.recipeName}}</p>
         <label for="dinner">Dinner:</label>
-        <select id="dinner" v-model="updatedMeal.dinnerID">
+        <select id="dinner" v-model="updatedMeal.dinnerID" required>
           <option
             v-for="recipe in myRecipes"
             v-bind:key="recipe.id"
@@ -57,7 +60,7 @@ export default {
     data() {
       return {
         updatedMeal:{
-
+          mealId: ''
         },
         currentMealPlan: "",
         myRecipes: "",
@@ -80,7 +83,13 @@ export default {
       resetForm() {
         this.newMeal = {};
       },
+      submitChanges(){
+      this.updatedMeal.mealId = this.currentMealPlan.mealId;
+      MealService.updateMealPlan(this.updatedMeal);
+      this.$router.push("/meals");
+    }
       
+    
     }
   }
 
