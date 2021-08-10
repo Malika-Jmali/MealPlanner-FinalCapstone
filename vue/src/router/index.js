@@ -11,6 +11,7 @@ import UserMeals from '../views/UserMeals'
 import MealPlanDetails from '../views/MealPlanDetails'
 import AddMealPlan from '../views/AddMealPlan'
 import UpdateMealPlan from '../views/UpdateMealPlan'
+import MyRecipes from '../views/MyRecipes'
 
 
 Vue.use(Router)
@@ -117,7 +118,17 @@ const router = new Router({
         requiresAuth: true
       }
 
+
+    },
+    {
+      path: "/myRecipes",
+      name: "myRecipes",
+      component:MyRecipes,
+      meta: {
+        requiresAuth: true
+      }
     }
+
       
   ]
 
