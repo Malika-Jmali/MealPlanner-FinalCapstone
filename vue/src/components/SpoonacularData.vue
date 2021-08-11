@@ -5,16 +5,19 @@
           -->
         <div class="spoon-header">
           <div class = "form">
-    <h1 class = "search-recipes">Search Our Recipes for FREE</h1>
+    <h1 class = "search-recipes">Search Recipes for FREE</h1>
+    <p class = "popular">Here are our most popular recipes, but search for whatever you like!</p>
     <!-- <button v-on:click="getData">Click Here For A Recipe!</button> -->
-
+    
       <label for="recipe" class = "recipe-name">Search Recipes By Name:</label>
       <input type="text" name="recipe" class="search-field name" v-model="search" />
 
       <label for="recipe" class = "recipe-category">Search Recipes By Category:</label>
       <input type="text" name="recipe" class="search-field category" v-model="typeKeyword" />
       <button id="submitSearch" v-on:click="getRecipeList" button type="submit">Search</button>
+      
       </div>
+      
     </div>
     <!-- Spoonacular Data -->
     <div class="cards">
@@ -42,13 +45,34 @@ export default {
       typeResults: "",
       resultArr: [
         {
+          title: "Chocolate Cookies",
           image:"https://www.snixykitchen.com/wp-content/uploads/2020/02/Gluten-Free-Chocolate-Cookies-9-1024x1536.jpg",
-          title: "Chocolate Cookies"
+          
         },
 
         {
-          
-        }
+            title: "Tuna Noodle Casserole",
+            image: "https://www.kyleecooks.com/wp-content/uploads/2018/01/Classic-Tuna-Noodle-Casserole-7a.jpg"
+        },
+
+        {
+              title: "fragrant Somali Rice ",
+              image: "http://xawaash.com/wp-content/uploads/2013/01/Somali-Rice-Pilaf-10.jpg"
+        },
+
+        {
+              title: "Stuffed Eggs ",
+              image: "http://xawaash.com/wp-content/uploads/2013/11/Nafaqo-21-Somali-Food-Blog.jpg"
+        },
+
+        {
+              title: "Braised Lamb Shank ",
+              image: "https://images.forwardcdn.com/image/720x/center/images/cropped/w-lambshank-1483637076.jpg"
+      },
+      {
+            title: "Sweet Potato Pancake ",
+            image: "https://tupelohoneycafe.com/wp-content/uploads/2017/03/Shoo-Mercy-Sweet-Potato-Pancake-1-e1490207057991.jpg"
+      }
       ],
     };
   },
@@ -118,6 +142,14 @@ export default {
 
 .recipe-name, .recipe-category {
   color: gray;
+  
+}
+
+.popular {
+  text-align: center;
+  margin-top: 10px;
+  color: gray;
+  margin-bottom: 30px;
 }
 
 .search-field {
@@ -168,6 +200,7 @@ export default {
 .recipe-details {
   text-decoration: none;
   color: gray;
+  font-size: 20px;
 }
 
 .recipe-details:hover {
@@ -184,10 +217,12 @@ export default {
 }
 
 .spoonacular-image {
-  
-  
-   border-radius: 10px;
-   box-shadow: 0 0 20px 0 rgba(0,0,0,0.2), 0 5px 5px 0 rgba(0,0,0,0.24);
+   width:100%;
+   height:300px;
+   object-fit:cover;
+   object-position:50% 50%;
+  border-radius: 10px;
+  box-shadow: 0 0 20px 0 rgba(0,0,0,0.2), 0 5px 5px 0 rgba(0,0,0,0.24);
 }
 
 .links {

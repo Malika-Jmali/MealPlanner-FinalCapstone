@@ -158,7 +158,7 @@ export default {
 }
 
 .btn:hover, .btn:active, .btn:focus {
-  background-color: plum;
+  background-color: purple;
   color: white;
   transition: all 1s ease 0s;
   cursor: pointer;

@@ -118,7 +118,7 @@ export default {
 }
 
 .login-button:hover, .login-button:active, .login-button:focus {
-  background-color: plum;
+  background-color: purple;
   color: white;
   transition: all 1s ease 0s;
   cursor: pointer;
