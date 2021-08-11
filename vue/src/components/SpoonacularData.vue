@@ -15,14 +15,14 @@
       <input type="text" name="recipe" class="search-field category" v-model="typeKeyword" />
       <button id="submitSearch" v-on:click="getRecipeList" button type="submit">Search</button>
       </div>
-      
     </div>
     <!-- Spoonacular Data -->
     <div class="cards">
-      <!-- <p v-bind="getRecipeList()"></p> -->
+       
     <div v-for="result in resultArr" v-bind:key="result.id">
     <p class = "links"><router-link class = "recipe-details" v-bind:to="{ name: 'recipeDetails', params:{id: result.id}}"> {{ result.title }} </router-link></p>
       <img class = "spoonacular-image" v-bind:src="result.image" alt="food image" />
+     
       </div>
     </div>
   </div>
@@ -40,7 +40,16 @@ export default {
       typeKeyword: "",
       results: "",
       typeResults: "",
-      resultArr: [],
+      resultArr: [
+        {
+          image:"https://www.snixykitchen.com/wp-content/uploads/2020/02/Gluten-Free-Chocolate-Cookies-9-1024x1536.jpg",
+          title: "Chocolate Cookies"
+        },
+
+        {
+          
+        }
+      ],
     };
   },
   methods: {
@@ -175,6 +184,7 @@ export default {
 }
 
 .spoonacular-image {
+  
   
    border-radius: 10px;
    box-shadow: 0 0 20px 0 rgba(0,0,0,0.2), 0 5px 5px 0 rgba(0,0,0,0.24);

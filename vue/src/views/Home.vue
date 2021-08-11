@@ -6,7 +6,7 @@
     <div class="text-box">
       <h1 class="forktastic">Welcome to Forktastic</h1>
       <p class="header-paragraph">Customizable meal plans and searchable library of recipes to make meal planning as easy as possible. </p>
-      <br>
+  
       <router-link v-if="$store.state.token == '' " v-bind:to="{ name: 'register' }" class="signup-button-home" button-type="submit">Click here to sign up</router-link>
      </div>
   </div>
@@ -106,11 +106,15 @@ export default {
 
 /* welcome banner */
 
+.container-home {
+  margin: 0;
+  padding: 0;
+}
+
 .home {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0;
   min-height: 100vh;
   width: 100%;
   background-image:linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ),url('../assets/louis-hansel-restaurant-photographer-cdR6i9i4jwI-unsplash.jpg');
@@ -119,6 +123,14 @@ export default {
   
   
 }
+
+.home h1  {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
 
 .forktastic {
   margin-top: 150px;
@@ -130,8 +142,9 @@ export default {
 .header-paragraph {
   color: white;
   font-size: 20px;
-  margin: 10px 0 40px;
+  margin-bottom: 100px;
   text-shadow: 1px 1px #000;
+  
 }
 
 /* a {
@@ -141,9 +154,7 @@ export default {
 .text-box {
   width: 100%;
   position: absolute;
-  top: 30%;
-  left: 30%;
-  transform: translate(-30%, -30%);
+  text-align: center;
 }
 
 .signup-button-home {
@@ -152,22 +163,22 @@ export default {
   outline: 0;
   border-radius: 5px;
   background: gray;
-  width: 100%;
+  width: auto;
   border: 0;
-  padding: 15px;
+  padding: 30px 30px;
   color: #fff;
-  font-size: 14px;
-  margin-bottom: 10px;
+  background-color: purple;
+  font-size: 20px;
   box-shadow: 0 0 20px 0 rgba(0,0,0,0.2), 0 5px 5px 0 rgba(0,0,0,0.24);
   text-decoration: none;
-  
-}
+ }
+
 
 .signup-button-home:hover, .signup-button-home:active, .signup-button-home:focus {
-  background-color: purple;
+  background-color: darkgray;
   transition: all 1s ease 0s;
   cursor: pointer;
-  color: white;
+  color: black;
 }
 
 /* features */
