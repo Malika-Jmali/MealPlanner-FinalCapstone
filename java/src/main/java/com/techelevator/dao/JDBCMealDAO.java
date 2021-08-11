@@ -115,7 +115,25 @@ public class JDBCMealDAO implements MealDAO{
                 "SET meal_name= ?, breakfast_id = ?, lunch_id = ?, dinner_id= ? " +
                 "WHERE meal_id= ?";
         jdbcTemplate.update(sql,meal.getMealName(),meal.getBreakfastID(), meal.getLunchID(), meal.getDinnerID(), meal.getMealId());
-    };
+    }
+
+    @Override
+    public Recipe retrieveRecipeById(int id) {
+        Recipe myRecipe = new Recipe();
+
+        String sql = "SELECT * " +
+                "FROM recipe " +
+                "WHERE recipe_id = ?";
+
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, id);
+
+        myRecipe = mapRowToRecipe(results);
+
+
+        return myRecipe;
+
+    }
+
 
     //DELETE FROM meal WHERE meal_id = ?
 
