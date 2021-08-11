@@ -17,8 +17,9 @@
       </div>
       
     </div>
-    
+    <!-- Spoonacular Data -->
     <div class="cards">
+      <!-- <p v-bind="getRecipeList()"></p> -->
     <div v-for="result in resultArr" v-bind:key="result.id">
     <p class = "links"><router-link class = "recipe-details" v-bind:to="{ name: 'recipeDetails', params:{id: result.id}}"> {{ result.title }} </router-link></p>
       <img class = "spoonacular-image" v-bind:src="result.image" alt="food image" />

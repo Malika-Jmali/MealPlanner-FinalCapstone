@@ -7,7 +7,7 @@
       <h1 class="forktastic">Welcome to Forktastic</h1>
       <p class="header-paragraph">Customizable meal plans and searchable library of recipes to make meal planning as easy as possible. </p>
       <br>
-      <router-link v-if="$store.state.token == '' " v-bind:to="{ name: 'register' }" class="signup-button" button-type="submit">Click here to sign up</router-link>
+      <router-link v-if="$store.state.token == '' " v-bind:to="{ name: 'register' }" class="signup-button-home" button-type="submit">Click here to sign up</router-link>
      </div>
   </div>
    <!-- app features -->
@@ -107,13 +107,16 @@ export default {
 /* welcome banner */
 
 .home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 0;
   min-height: 100vh;
   width: 100%;
   background-image:linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ),url('../assets/louis-hansel-restaurant-photographer-cdR6i9i4jwI-unsplash.jpg');
   background-position: center;
   background-size: cover;
-  text-align: center;
+  
   
 }
 
@@ -143,7 +146,7 @@ export default {
   transform: translate(-30%, -30%);
 }
 
-.signup-button {
+.signup-button-home {
   text-transform: uppercase;
   font-weight: bold;
   outline: 0;
@@ -157,13 +160,14 @@ export default {
   margin-bottom: 10px;
   box-shadow: 0 0 20px 0 rgba(0,0,0,0.2), 0 5px 5px 0 rgba(0,0,0,0.24);
   text-decoration: none;
+  
 }
 
-.signup-button:hover, .signup-button:active, .signup-button:focus {
-  background-color: #000;
+.signup-button-home:hover, .signup-button-home:active, .signup-button-home:focus {
+  background-color: purple;
   transition: all 1s ease 0s;
   cursor: pointer;
-  color: gray;
+  color: white;
 }
 
 /* features */

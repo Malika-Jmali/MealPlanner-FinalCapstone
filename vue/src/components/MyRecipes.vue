@@ -2,10 +2,9 @@
   <div class = "my-recipe-card">
     
       <p v-bind="getMyRecipes()"></p>
+      <h1>Your Recipe Library</h1>
       <div v-for="recipe in myRecipes" v-bind:key="recipe.id">
-      <p>
-         {{recipe.recipeName}}
-      </p>
+      <p><router-link class="recipe-name-link" v-bind:to="{ name: 'myRecipe', params: { id: recipe.recipeId } }"> {{recipe.recipeName}}</router-link></p>
       <img v-bind:src="recipe.image">
   </div>
   </div>
