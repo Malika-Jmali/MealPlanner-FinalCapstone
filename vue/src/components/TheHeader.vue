@@ -43,7 +43,7 @@ export default {
 }
 
 .logo {
-    font-size: 1rem;
+    font-size: 23px;
     color: grey;
     text-decoration: none;
     
@@ -57,7 +57,7 @@ export default {
     font-family: 'Poppins';
     text-decoration: none;
     color: gray;
-    font-size: 1rem;
+    font-size: 20px;
     margin-left: 2rem;  
 }
 

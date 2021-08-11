@@ -11,8 +11,8 @@
 
 
 export default {
-    name: "my-recipes-cards",
-    props: ["myRecipes"]
+    name: "my-recipes-card",
+   
     
 }
 </script>
@@ -22,8 +22,7 @@ export default {
 
 <style>
 
-.my-recipe-card {
-  margin-top: 300px;
-}
+
+
 
 </style>

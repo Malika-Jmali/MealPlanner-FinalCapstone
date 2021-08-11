@@ -121,8 +121,9 @@ export default {
 }
 
 .search-field:hover {
-  background-color:#fcbaf3;
+  background-color: plum;
   transition: all 1s ease 0s;
+  
 }
 
 .name {
@@ -148,10 +149,10 @@ export default {
 }
 
 #submitSearch:hover, #submitSearch:active, #submitSearch:focus {
-  background-color: #000;
-  transition: all 1s ease 0s;
+  background-color: purple;
+  transition: all .5s ease 0s;
   cursor: pointer;
-  color: gray;
+  color: white;
 }
 
 .recipe-details {
