@@ -43,12 +43,12 @@ export default {
     
    data() {
      return{
-       message: 'Log in to save this recipe'
+       message: 'Log in or sign up to save this recipe'
      }
    },
    methods: {
      changeTitle() {
-       this.message = this.message.replace("Log in to save this recipe", "Saved!");
+       this.message = this.message.replace("Log in or sign up to save this recipe", "Saved!");
        
      }
    }
