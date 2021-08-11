@@ -1,6 +1,6 @@
 <template>
 <div class = "body-recipe-card">
- <div class = "recipe-card">
+<div class = "spoon-recipe-card">
    <div class="image-sidebar">
    <img class = "recipe-detail-img" v-bind:src="recipes[0].image" alt="food image" />
    </div>
@@ -14,7 +14,8 @@
       </div>
     <p><span class="title">Instructions:</span> {{recipes[0].instructions}}</p>   
     </div>
-  </div>
+    </div>
+  
             <p>{{message}}</p>
             <button v-if ="$store.state.token != ''" button type="submit" class = "save-this-recipe" v-on:click="changeTitle()"  >Save this Recipe</button>
             <p>Print This Recipe or Share on Social Media:</p>
@@ -34,6 +35,7 @@
           </ul>
   <router-link class="back-to-search" v-bind:to="{name: 'spoonacular'}">Back to Search</router-link>
   </div>
+  
 </template>
 
 <script>
@@ -104,7 +106,7 @@ export default {
   font-weight: bold;
   outline: 0;
   border-radius: 5px;
-  background: gray;
+  background: purple;
   width: auto;
   border: 0;
   padding: 14px;
@@ -118,7 +120,7 @@ export default {
 .save-this-recipe:hover {
   transition: all 1s ease 0s;
   cursor: pointer;
-  background-color: purple;
+  background-color: gray;
 }
 
 </style>

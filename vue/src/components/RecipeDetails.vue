@@ -59,7 +59,7 @@ export default {
  place-items: center;
 }
 
-.recipe-card {
+.spoon-recipe-card {
   box-shadow: 0 0 20px rgba(0,0,0,0.2);
   width: 60%;
   display: flex;

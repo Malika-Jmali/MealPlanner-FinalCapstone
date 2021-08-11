@@ -1,5 +1,5 @@
 <template>
-    <div class = "my-recipe-card">
+    <div class = "my-single-recipe-card">
         <h1>{{myRecipe.recipeName}}</h1>
         <!-- <div v-for="recipe in myRecipes" v-bind:key="recipe.id"></div> -->
         <p v-bind="getMyRecipe()" ></p>

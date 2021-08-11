@@ -24,7 +24,7 @@
        
     <div v-for="result in resultArr" v-bind:key="result.id">
     <p class = "links"><router-link class = "recipe-details" v-bind:to="{ name: 'recipeDetails', params:{id: result.id}}"> {{ result.title }} </router-link></p>
-      <router-link class = "recipe-details" v-bind:to="{ name: 'recipeDetails', params:{id: result.id}}"><img class = "spoonacular-image" v-bind:src="result.image" alt="food image" /></router-link>
+      <router-link class = "recipe-details" v-bind:to="{ name: 'recipeDetails', params:{id: result.id}}"><img id = "spoonacular-image" v-bind:src="result.image" alt="food image" /></router-link>
      
       </div>
     </div>
@@ -170,6 +170,7 @@ export default {
 
 .name {
   width: 300px;
+  
 }
 
 .category {
@@ -200,7 +201,7 @@ export default {
 .recipe-details {
   text-decoration: none;
   color: gray;
-  font-size: 20px;
+  font-size: 14px;
 }
 
 .recipe-details:hover {
@@ -216,7 +217,7 @@ export default {
   text-align: center;
 }
 
-.spoonacular-image {
+#spoonacular-image {
   width:100%;
   height:300px;
   object-fit:cover;

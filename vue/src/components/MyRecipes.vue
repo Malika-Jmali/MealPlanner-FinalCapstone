@@ -5,7 +5,7 @@
   </div>
   <div class="recipe-row">
       <div v-bind="getMyRecipes()"></div>
-            <div class="recipe-card" v-for="recipe in myRecipes" v-bind:key="recipe.id">
+            <div class="my-recipe-card" v-for="recipe in myRecipes" v-bind:key="recipe.id">
       <img v-bind:src="recipe.image" class = "my-recipe-image" alt = "recipe-image">
       <div class="recipe-header">
       <router-link  class="recipe-button" v-bind:to="{ name: 'myRecipe', params: { id: recipe.recipeId } }" button-type = "submit"> {{recipe.recipeName}}</router-link>
@@ -59,11 +59,17 @@ export default {
   gap: 3px;
   flex-flow: wrap;
   
+  
 }
 
-.recipe-card {
+.my-recipe-card {
   width: 20%;
-  margin-bottom: 50px;
+  margin: 50px 10px;
+  transition: 0.3;
+  padding: 30px 20px;
+  box-shadow: 0 0 20px 0 rgba(0,0,0,0.2), 0 5px 5px 0 rgba(0,0,0,0.24);
+  border-radius: 10px;
+
 }
 
 .recipe-header {

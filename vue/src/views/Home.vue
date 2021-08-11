@@ -12,19 +12,20 @@
   </div>
    <!-- app features -->
   <div class="features">
-    <h1 class = "headline">App Features</h1>
+    <h1 class = "headline">Benefits of Forktastic</h1>
     <div class="row">
       <div class="feature-col">
-        <h2 class="app-benefits">Free Recipe Search</h2>
-        <p class = "home-paragraph">Search the database of hundreds of recipes by name and category, even without an account.</p>
+        <h2 class="app-benefits">Save Money</h2>
+        <p class = "home-paragraph">Do you want to save your money? Meal planning will help you avoid buying unnecessary items from the grocery store. It will also help you reduce your food waste, that way you get the most bang for your buck!</p>
       </div>
        <div class="feature-col">
-        <h2 class= "app-benefits">Meal Planning</h2>
-        <p class = "home-paragraph">Create and customize meal plans that fit your dietary needs.</p>
+        <h2 class= "app-benefits">Save Time</h2>
+        <p class = "home-paragraph">Don’t waste your time trying to figure out what you want to eat each day. By planning and buying your groceries for the entire week you will have more time to enjoy your favorite hobbies or watch that movie you’ve been wanting to see.
+</p>
       </div>
        <div class="feature-col">
-        <h2 class= "app-benefits">Weekly Newsletter</h2>
-        <p class = "home-paragraph">Be the first to know when new recipes are added or our new meal plans.</p>
+        <h2 class= "app-benefits">Expand your Taste Buds</h2>
+        <p class = "home-paragraph">Eating the same old thing week after week can be mundane. Trying new and healthy foods will help you find what you really like. With our wide selection of recipes, you are sure to make a meal plan that will excite your palate.</p>
       </div>
     </div>
     </div>
@@ -33,7 +34,7 @@
 
     <div class="categories">
       <h1 class = "headline">Meal Plan Categories</h1>
-      <p class = "home-paragraph">Choose from any number of our categories, including:</p>
+      <p class = "home-paragraph-description">Choose from any number of our categories, including:</p>
 
       <div class="row">
         <div class="categories-col">
@@ -60,7 +61,7 @@
 
   <div class="recipes">
     <h1 class = "headline">Sample Recipes</h1>
-    <p class = "home-paragraph">Some of our most popular recipes:</p>
+    <p class = "home-paragraph-description">Some of our most popular recipes:</p>
   
     <div class="row">
       <div class="recipes-col">
@@ -84,7 +85,7 @@
   <!-- footer -->
   <div class="footer">
     <h4>Contact Us</h4>
-     <p class = "home-paragraph">We want to know what you think! To ask questions or make suggestions, please connect with
+     <p class = "home-paragraph-description">We want to know what you think! To ask questions or make suggestions, please connect with
       us on social media: </p>
       <div class="icons">
         <i class="fab fa-facebook-f" id="facebook"></i>
@@ -200,6 +201,14 @@ export default {
   padding: 10px;
   line-height: 20px;
   font-size: 15px;
+  text-align: justify;
+}
+
+.home-paragraph-description {
+  padding: 10px;
+  line-height: 20px;
+  font-size: 15px;
+  text-align: center;
 }
 
 
@@ -329,10 +338,12 @@ export default {
 #facebook, #instagram, #twitter{
   margin: 10px 10px;
   padding: 10px 10px;
+  color: purple;
+  font-size: 20px;
 }
 
 #facebook:hover, #instagram:hover, #twitter:hover {
-  color: purple;
+  color: black;
   cursor: pointer;
 }
 
