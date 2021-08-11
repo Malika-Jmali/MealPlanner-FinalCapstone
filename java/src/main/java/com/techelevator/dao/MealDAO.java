@@ -18,6 +18,6 @@ public interface MealDAO {
 
     void updateMealPlanById(Meal meal);
 
-    Recipe retrieveRecipeById(int id);
+    Recipe retrieveRecipeByRecipeId(int id);
 
 }

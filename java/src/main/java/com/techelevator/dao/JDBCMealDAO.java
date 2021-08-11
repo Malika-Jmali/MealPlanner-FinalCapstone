@@ -118,7 +118,7 @@ public class JDBCMealDAO implements MealDAO{
     }
 
     @Override
-    public Recipe retrieveRecipeById(int id) {
+    public Recipe retrieveRecipeByRecipeId(int id) {
         Recipe myRecipe = new Recipe();
 
         String sql = "SELECT * " +
@@ -127,7 +127,11 @@ public class JDBCMealDAO implements MealDAO{
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, id);
 
-        myRecipe = mapRowToRecipe(results);
+
+        while(results.next()){
+            myRecipe = mapRowToRecipe(results);
+        }
+
 
 
         return myRecipe;

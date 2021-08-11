@@ -77,4 +77,10 @@ public class MealController {
     public void updateMealPlan(@Valid @RequestBody Meal meal) {
         mealDAO.updateMealPlanById(meal);
     }
+
+    @RequestMapping(path = "/recipeDetails/{id}", method = RequestMethod.GET)
+    public Recipe getRecipeByRecipeId(@PathVariable Integer id) {
+
+        return mealDAO.retrieveRecipeByRecipeId(id);
+    }
 }
