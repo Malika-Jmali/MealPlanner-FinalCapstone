@@ -97,6 +97,7 @@ export default {
 
 .recipe-button:hover {
   background-color: gray;
+  transition: all 1s ease 0s;
 }
 
 .my-recipe-image {

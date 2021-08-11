@@ -33,7 +33,7 @@
               <a id="social-link" href="#"><i class="fab fa-instagram"></i></a>
             </li>
           </ul>
-  <router-link class="back-to-search" v-bind:to="{name: 'spoonacular'}">Back to Search</router-link>
+  <router-link class="back-to-spoon-search" v-bind:to="{name: 'spoonacular'}">Back to Search</router-link>
   </div>
   
 </template>
@@ -60,14 +60,28 @@ export default {
 
 <style>
 
-.back-to-search {
-  color: gray;
+.back-to-spoon-search {
+   text-transform: uppercase;
+  font-family: "Poppins";
+  font-weight: bold;
+  outline: 0;
+  border-radius: 5px;
+  background: purple;
+  width: auto;
+  border: 0;
+  padding: 14px;
+  margin: 20px 25px;
+  color: #fff;
+  font-size: 14px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   text-decoration: none;
-  padding-top: 15px;
+  cursor: pointer;
 }
 
-.back-to-search:hover{
-  color: black;
+.back-to-spoon-search:hover{
+  transition: all 1s ease 0s;
+  cursor: pointer;
+  background-color: gray;
 }
 
 .recipe-detail-img {

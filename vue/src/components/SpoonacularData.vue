@@ -202,6 +202,7 @@ export default {
   text-decoration: none;
   color: gray;
   font-size: 14px;
+  font-weight: bold;
 }
 
 .recipe-details:hover {
