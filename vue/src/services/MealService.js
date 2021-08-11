@@ -3,6 +3,10 @@ import axios from 'axios';
 
 export default {
 
+  getMyRecipeDetails(id){
+    return axios.get('/recipeDetails/' + id)
+  },
+
   updateMealPlan(meal){
     axios.put('/updateMeals', meal)
   },

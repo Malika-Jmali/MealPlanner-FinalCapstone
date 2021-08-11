@@ -12,6 +12,7 @@ import MealPlanDetails from '../views/MealPlanDetails'
 import AddMealPlan from '../views/AddMealPlan'
 import UpdateMealPlan from '../views/UpdateMealPlan'
 import MyRecipes from '../views/MyRecipes'
+import MyRecipesCard from '../views/MyRecipesCard'
 
 
 Vue.use(Router)
@@ -127,8 +128,17 @@ const router = new Router({
       meta: {
         requiresAuth: true
       }
-    }
+    },
 
+
+    {
+      path: "/myRecipe/:id",
+      name: "myRecipe",
+      component:MyRecipesCard,
+      meta: {
+        requiresAuth: true
+      }
+    }
       
   ]
 
