@@ -64,7 +64,7 @@ export default {
   font-weight: bold;
   outline: 0;
   border-radius: 5px;
-  background: gray;
+  background: purple;
   margin: auto;
   width: auto;
   border: 0;
@@ -79,6 +79,6 @@ export default {
 #add-meal-plan-btn:hover {
   transition: all 1s ease 0s;
   cursor: pointer;
-  background-color: purple;
+  background-color: gray;
 }
 </style>

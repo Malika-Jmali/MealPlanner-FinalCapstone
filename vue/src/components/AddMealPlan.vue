@@ -165,7 +165,7 @@ select, input {
   font-weight: bold;
   outline: 0;
   border-radius: 5px;
-  background: gray;
+  background: purple;
   width: auto;
   border: 0;
   padding: 15px;
@@ -182,7 +182,7 @@ select, input {
   font-weight: bold;
   outline: 0;
   border-radius: 5px;
-  background: gray;
+  background: purple;
   margin: auto;
   width: auto;
   border: 0;
@@ -197,6 +197,6 @@ select, input {
 .submit-new-plan:hover, .clear-fields:hover, .back-button:hover {
   transition: all 1s ease 0s;
   cursor: pointer;
-  background-color: purple;
+  background-color: gray;
 }
 </style>

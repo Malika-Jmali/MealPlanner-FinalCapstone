@@ -100,12 +100,12 @@ export default {
 }
 
 #social-link {
-  color: gray;
+  color: purple;
 }
 
 #social-link:hover,
 #social-link:focus {
-  color: plum;
+  color: gray;
   opacity: 1;
 }
 
@@ -145,7 +145,7 @@ export default {
   font-weight: bold;
   outline: 0;
   border-radius: 5px;
-  background: gray;
+  background: purple;
   width: auto;
   border: 0;
   padding: 15px;
@@ -162,7 +162,7 @@ export default {
   font-weight: bold;
   outline: 0;
   border-radius: 5px;
-  background: gray;
+  background: purple;
   width: auto;
   border: 0;
   padding: 14px;
@@ -179,7 +179,7 @@ export default {
   font-weight: bold;
   outline: 0;
   border-radius: 5px;
-  background: gray;
+  background: purple;
   width: auto;
   border: 0;
   padding: 14px;
@@ -196,6 +196,6 @@ export default {
 .print-meal:hover {
   transition: all 1s ease 0s;
   cursor: pointer;
-  background-color: purple;
+  background-color: gray;
 }
 </style>

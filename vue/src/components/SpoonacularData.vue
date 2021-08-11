@@ -24,7 +24,7 @@
        
     <div v-for="result in resultArr" v-bind:key="result.id">
     <p class = "links"><router-link class = "recipe-details" v-bind:to="{ name: 'recipeDetails', params:{id: result.id}}"> {{ result.title }} </router-link></p>
-      <img class = "spoonacular-image" v-bind:src="result.image" alt="food image" />
+      <router-link class = "recipe-details" v-bind:to="{ name: 'recipeDetails', params:{id: result.id}}"><img class = "spoonacular-image" v-bind:src="result.image" alt="food image" /></router-link>
      
       </div>
     </div>
@@ -182,7 +182,7 @@ export default {
   font-weight: bold;
   outline: 0;
   border-radius: 5px;
-  background: gray;
+  background: purple;
   border: 0;
   padding: 15px;
   color: #fff;
@@ -191,7 +191,7 @@ export default {
 }
 
 #submitSearch:hover, #submitSearch:active, #submitSearch:focus {
-  background-color: purple;
+  background-color: gray;
   transition: all .5s ease 0s;
   cursor: pointer;
   color: white;
@@ -217,10 +217,10 @@ export default {
 }
 
 .spoonacular-image {
-   width:100%;
-   height:300px;
-   object-fit:cover;
-   object-position:50% 50%;
+  width:100%;
+  height:300px;
+  object-fit:cover;
+  object-position:50% 50%;
   border-radius: 10px;
   box-shadow: 0 0 20px 0 rgba(0,0,0,0.2), 0 5px 5px 0 rgba(0,0,0,0.24);
 }
