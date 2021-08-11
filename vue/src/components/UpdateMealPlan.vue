@@ -129,7 +129,7 @@ export default {
   font-weight: bold;
   outline: 0;
   border-radius: 5px;
-  background: gray;
+  background: purple;
   width: auto;
   border: 0;
   padding: 15px;
@@ -144,7 +144,7 @@ export default {
 .submit-updated-plan:hover {
   transition: all 1s ease 0s;
   cursor: pointer;
-  background-color: purple;
+  background-color: gray;
 }
 
 </style>

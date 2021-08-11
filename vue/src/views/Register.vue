@@ -148,7 +148,7 @@ export default {
   font-weight: bold;
   outline: 0;
   border-radius: 5px;
-  background: gray;
+  background: purple;
   width: 100%;
   border: 0;
   padding: 15px;
@@ -158,7 +158,7 @@ export default {
 }
 
 .btn:hover, .btn:active, .btn:focus {
-  background-color: purple;
+  background-color: gray;
   color: white;
   transition: all 1s ease 0s;
   cursor: pointer;
