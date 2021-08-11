@@ -99,7 +99,7 @@ export default {
 }
 
 .form-control:hover {
-  background-color:#fcbaf3;
+  background-color: plum;
   transition: all 1s ease 0s;
 }
 
@@ -118,8 +118,8 @@ export default {
 }
 
 .login-button:hover, .login-button:active, .login-button:focus {
-  background-color: #000;
-  color: gray;
+  background-color: plum;
+  color: white;
   transition: all 1s ease 0s;
   cursor: pointer;
 }

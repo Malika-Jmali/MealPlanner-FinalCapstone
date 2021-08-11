@@ -15,15 +15,15 @@
     <h1 class = "headline">App Features</h1>
     <div class="row">
       <div class="feature-col">
-        <h2>Free Recipe Search</h2>
+        <h2 class="app-benefits">Free Recipe Search</h2>
         <p class = "home-paragraph">Search the database of hundreds of recipes by name and category, even without an account.</p>
       </div>
        <div class="feature-col">
-        <h2>Meal Planning</h2>
+        <h2 class= "app-benefits">Meal Planning</h2>
         <p class = "home-paragraph">Create and customize meal plans that fit your dietary needs.</p>
       </div>
        <div class="feature-col">
-        <h2>Weekly Newsletter</h2>
+        <h2 class= "app-benefits">Weekly Newsletter</h2>
         <p class = "home-paragraph">Be the first to know when new recipes are added or our new meal plans.</p>
       </div>
     </div>
@@ -39,19 +39,19 @@
         <div class="categories-col">
           <img src="../assets/vegetarian.jpg" alt="vegetarian">
           <div class="layer">
-            <h3>VEGETARIAN</h3>
+            <h3 class="meal-plan-example">VEGETARIAN</h3>
           </div>
         </div>
         <div class="categories-col">
           <img src="../assets/keto.jpg" alt="keto">
           <div class="layer">
-            <h3>KETO</h3>
+            <h3 class="meal-plan-example">KETO</h3>
           </div>
         </div>
         <div class="categories-col">
           <img src="../assets/mediterranean2.jpg" alt="mediterranean">
           <div class="layer">
-            <h3>MEDITERRANEAN</h3>
+            <h3 class="meal-plan-example">MEDITERRANEAN</h3>
           </div>
         </div>
       </div>
@@ -64,18 +64,18 @@
   
     <div class="row">
       <div class="recipes-col">
-        <h3>Beer Can Chicken</h3> 
+        <h3 class = "recipe-example">Beer Can Chicken</h3> 
         <img src="../assets/beercanchicken.jpg" alt="beer can chicken">
           
       </div>
             <div class="recipes-col">
-              <h3>Moroccan Couscous</h3>
+              <h3 class = "recipe-example">Moroccan Couscous</h3>
         <img src="../assets/couscous.jpg" alt="moroccan couscous">
         
         </div>
         
             <div class="recipes-col">
-              <h3>Chocolate Cookies</h3>
+              <h3 class = "recipe-example">Chocolate Cookies</h3>
         <img src="../assets/cookies.jpg" alt="chocolate cookies">
         
       </div>
@@ -87,9 +87,9 @@
      <p class = "home-paragraph">We want to know what you think! To ask questions or make suggestions, please connect with
       us on social media: </p>
       <div class="icons">
-        <i class="fab fa-facebook-f"></i>
-        <i class="fab fa-twitter"></i>
-        <i class="fab fa-instagram"></i>
+        <i class="fab fa-facebook-f" id="facebook"></i>
+        <i class="fab fa-twitter" id="twitter"></i>
+        <i class="fab fa-instagram" id="instagram"></i>
       </div>
   </div>
     <!-- container div end-->
@@ -131,9 +131,9 @@ export default {
   text-shadow: 1px 1px #000;
 }
 
-a {
+/* a {
   color: white;
-}
+} */
 
 .text-box {
   width: 100%;
@@ -206,7 +206,7 @@ a {
   box-shadow: 0 0 20px 0 rgba(0,0,0,0.2), 0 5px 5px 0 rgba(0,0,0,0.24);
 }
 
-h3 {
+.meal-plan-example, .recipe-example  {
   text-align: center;
   color: grey;
   
@@ -311,9 +311,14 @@ h3 {
   margin: 40px 0 25px 0;
 }
 
-.fab{
+#facebook, #instagram, #twitter{
   margin: 10px 10px;
   padding: 10px 10px;
+}
+
+#facebook:hover, #instagram:hover, #twitter:hover {
+  color: purple;
+  cursor: pointer;
 }
 
 </style>

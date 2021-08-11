@@ -88,11 +88,9 @@ export default {
 </script>
 
 <style>
-
 .meal-plan-body {
-    margin-top: 100px;
-    margin-left: 20px;
+margin-top: 50px;
+margin-left: 20px;
 }
-
 
 </style>
