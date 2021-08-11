@@ -1,5 +1,6 @@
 <template>
   <div class="meal-body">
+  
     <h1 class="your-meal-plans">Your Current Meal Plans</h1>
     <div class="add-meal-plan">
     <router-link
@@ -18,6 +19,8 @@
         v-bind:key="meal.id"
       />
     </div>
+      <p class="daily-calories">Want to find out your daily caloric requirements? Use the My Plate Plan from the USDA here!</p>
+    <iframe class="widget" src="https://www.myplate.gov/widgets/myplate-plan-start/sm" scrolling="no" style="min-height: 300px;"></iframe>
   </div>
 </template>
 
@@ -52,7 +55,7 @@ export default {
 }
 
 .add-meal-plan {
-    align-items: flex-start;
+    align-items: left;
     display: flex; 
     padding: 20px;
 }
@@ -81,4 +84,5 @@ export default {
   cursor: pointer;
   background-color: gray;
 }
+
 </style>

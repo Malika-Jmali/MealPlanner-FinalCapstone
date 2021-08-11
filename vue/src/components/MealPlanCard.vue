@@ -36,8 +36,10 @@
             class="print-meal"
           />
         </div>
+        
       </div>
     </div>
+    
   </div>
 </template>
 
