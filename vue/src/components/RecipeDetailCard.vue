@@ -43,12 +43,12 @@ export default {
     
    data() {
      return{
-       message: 'Only logged in users can save this recipe'
+       message: 'Log in to save this recipe'
      }
    },
    methods: {
      changeTitle() {
-       this.message = this.message.replace("Only logged in users can save this recipe", "Saved!");
+       this.message = this.message.replace("Log in to save this recipe", "Saved!");
        
      }
    }

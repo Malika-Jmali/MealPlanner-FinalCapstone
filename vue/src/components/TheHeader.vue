@@ -6,6 +6,7 @@
         <router-link class = "header-link" v-bind:to="{name: 'home'}">Home</router-link>
          <router-link class = "header-link" v-bind:to="{name: 'spoonacular'}">Search Recipes</router-link>
           <router-link class = "header-link" v-bind:to="{name:'userMeals'}" v-if="$store.state.token != ''">My Meal Plans</router-link> 
+          <router-link class = "header-link" v-bind:to="{ name: 'register' }" v-if="$store.state.token == ''">Sign Up</router-link>
          <router-link class = "header-link" v-bind:to="{ name: 'login' }" v-if="$store.state.token == ''">Login</router-link>
           <router-link class = "header-link" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
       </nav>
