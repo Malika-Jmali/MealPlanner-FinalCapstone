@@ -6,7 +6,7 @@
         <div class="spoon-header">
           <div class = "form">
     <h1 class = "search-recipes">Search Recipes for FREE</h1>
-    <p class = "popular">Here are our most popular recipes, but search for whatever you like!</p>
+    <p class = "popular">Browse our sample recipes or search for whatever you like!</p>
     <!-- <button v-on:click="getData">Click Here For A Recipe!</button> -->
     
       <label for="recipe" class = "recipe-name">Search Recipes By Name:</label>
@@ -142,6 +142,8 @@ export default {
 
 .recipe-name, .recipe-category {
   color: gray;
+  font-size: 20px;
+  font-weight: 500;
   
 }
 
@@ -150,6 +152,8 @@ export default {
   margin-top: 10px;
   color: gray;
   margin-bottom: 30px;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .search-field {
@@ -201,8 +205,8 @@ export default {
 .recipe-details {
   text-decoration: none;
   color: gray;
-  font-size: 14px;
-  font-weight: bold;
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .recipe-details:hover {

@@ -1,6 +1,5 @@
 <template>
   <div class="meal-body">
-  
     <h1 class="your-meal-plans">Your Current Meal Plans</h1>
     <div class="add-meal-plan">
     <router-link
@@ -11,6 +10,10 @@
       >Click here to add a new meal plan</router-link
     >
     </div>
+    <div class="widget">
+      <p class="daily-calories">To find your daily nutrition goals, use the My Plate Plan widget for FREE</p>
+    <iframe src="https://www.myplate.gov/widgets/myplate-plan-start/sm" scrolling="no" style="min-height: 300px;"></iframe>
+    </div>
 
     <div v-bind="getMyMeals()">
       <meal-plan-card
@@ -19,8 +22,6 @@
         v-bind:key="meal.id"
       />
     </div>
-      <p class="daily-calories">Want to find out your daily caloric requirements? Use the My Plate Plan from the USDA here!</p>
-    <iframe class="widget" src="https://www.myplate.gov/widgets/myplate-plan-start/sm" scrolling="no" style="min-height: 300px;"></iframe>
   </div>
 </template>
 
@@ -47,6 +48,10 @@ export default {
 </script>
 
 <style>
+.meal-body {
+  margin: 0;
+  padding: 0;
+}
 .your-meal-plans {
   margin-top: 70px;
   display: flex;
@@ -71,7 +76,7 @@ export default {
   margin: auto;
   width: auto;
   border: 0;
-  padding: 15px;
+  padding: 20px;
   color: #fff;
   font-size: 14px;
   margin-bottom: 10px;
@@ -84,5 +89,13 @@ export default {
   cursor: pointer;
   background-color: gray;
 }
+
+.widget, .daily-calroies {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  color: gray;
+}
+
 
 </style>

@@ -5,7 +5,7 @@
   <div class="home">
     <div class="text-box">
       <h1 class="forktastic">Welcome to Forktastic</h1>
-      <p class="header-paragraph">Customizable meal plans and searchable library of recipes to make meal planning as easy as possible. </p>
+      <h2 class="header-who-we-are">Customizable meal plans and searchable library of recipes that makes meal planning as easy as possible. </h2>
   
       <router-link v-if="$store.state.token == '' " v-bind:to="{ name: 'register' }" class="signup-button-home" button-type="submit">Click here to sign up</router-link>
      </div>
@@ -34,7 +34,7 @@
 
     <div class="categories">
       <h1 class = "headline">Meal Plan Categories</h1>
-      <p class = "home-paragraph-description">Choose from any number of our categories, including:</p>
+      <p class = "home-paragraph-description">Create your own or choose from our library of meal plans</p>
 
       <div class="row">
         <div class="categories-col">
@@ -61,7 +61,7 @@
 
   <div class="recipes">
     <h1 class = "headline">Sample Recipes</h1>
-    <p class = "home-paragraph-description">Some of our most popular recipes:</p>
+    <p class = "home-paragraph-description">Our most popular recipes</p>
   
     <div class="row">
       <div class="recipes-col">
@@ -85,7 +85,7 @@
   <!-- footer -->
   <div class="footer">
     <h4>Contact Us</h4>
-     <p class = "home-paragraph-description">We want to know what you think! To ask questions or make suggestions, please connect with
+     <p class = "let-us-know">We want to know what you think! To ask questions or make suggestions, please connect with
       us on social media: </p>
       <div class="icons">
         <i class="fab fa-facebook-f" id="facebook"></i>
@@ -118,7 +118,7 @@ export default {
   align-items: center;
   min-height: 100vh;
   width: 100%;
-  background-image:linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ),url('../assets/louis-hansel-restaurant-photographer-cdR6i9i4jwI-unsplash.jpg');
+  background-image:linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),url('../assets/louis-hansel-restaurant-photographer-cdR6i9i4jwI-unsplash.jpg');
   background-position: center;
   background-size: cover;
   
@@ -137,14 +137,14 @@ export default {
   margin-top: 150px;
   color: #fff;
   font-size: 100px;
-  text-shadow: 1px 1px #000;
+  text-shadow: 2px 2px #000;
 }
 
-.header-paragraph {
-  color: white;
-  font-size: 20px;
+.header-who-we-are {
+  color: #fff;
+  font-size: 22px;
   margin-bottom: 100px;
-  text-shadow: 1px 1px #000;
+  text-shadow: 1px 2px #000;
   
 }
 
@@ -170,8 +170,9 @@ export default {
   color: #fff;
   background-color: purple;
   font-size: 20px;
-  box-shadow: 0 0 20px 0 rgba(0,0,0,0.2), 0 5px 5px 0 rgba(0,0,0,0.24);
+  box-shadow: 0 10px 20px 0 rgba(0,0,0,0.2), 0 10px 10px 0 rgba(0,0,0,0.24);
   text-decoration: none;
+  margin-right: 50px;
  }
 
 
@@ -193,8 +194,9 @@ export default {
 }
 
 .headline {
-  font-size: 35px;
+  font-size: 40px;
   color: grey;
+  font-weight: 600;
 }
 
 .home-paragraph {
@@ -202,13 +204,18 @@ export default {
   line-height: 20px;
   font-size: 15px;
   text-align: justify;
+  font-size: 19px;
+  font-weight: 500;
 }
 
 .home-paragraph-description {
   padding: 10px;
   line-height: 20px;
-  font-size: 15px;
+  font-size: 25px;
   text-align: center;
+  font-weight: bold;
+  color: gray;
+
 }
 
 
@@ -233,6 +240,7 @@ export default {
 .meal-plan-example, .recipe-example  {
   text-align: center;
   color: grey;
+  font-size: 25px;
   
 }
 
@@ -333,6 +341,11 @@ export default {
 .footer h4 {
   padding-top: 30px;
   margin: 40px 0 25px 0;
+}
+
+.let-us-know {
+  font-size: 17px;
+  font-weight: 500;
 }
 
 #facebook, #instagram, #twitter{
