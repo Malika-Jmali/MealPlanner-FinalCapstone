@@ -3,14 +3,14 @@
     <div class="add-plan-box">
       <p v-bind="getMyRecipes()"></p>
       <form v-on:submit.prevent="submitMeal">
-        <h1 id="add-meal-title">Add a Meal Plan</h1>
+        <h1 id="add-meal-title">Create Meal Plan</h1>
+
         <div class="form-element">
           <div class="form-element-select">
             <label for="category" class="label"><p class="new-meal-info">Meal Plan Name:</p></label>
             <input type="text" class="name-of-meal" required v-model="newMeal.mealName" />
           </div>
-          <!-- </div> -->
-          <!-- <div class="form-element"> -->
+
           <div class="form-element-select">
             <p class="new-meal-info"><label for="breakfast" class="label">Breakfast:</label></p>
             <select required v-model="newMeal.breakfastID">
@@ -23,8 +23,7 @@
               </option>
             </select>
           </div>
-          <!-- </div> -->
-          <!-- <div class="form-element"> -->
+        
           <div class="form-element-select">
             <p class="new-meal-info"><label for="lunch" class="label">Lunch:</label></p>
             <select required v-model="newMeal.lunchID">
@@ -37,8 +36,7 @@
               </option>
             </select>
           </div>
-          <!-- </div> -->
-          <!-- <div class="form-element"> -->
+        
           <div class="form-element-select">
             <p class="new-meal-info"><label for="dinner" class="label">Dinner:</label></p>
             <select required v-model="newMeal.dinnerID">
@@ -51,7 +49,6 @@
               </option>
             </select>
           </div>
-          <!-- </div> -->
         </div>
 
         <div class="button-wrapper-submit">
@@ -62,7 +59,7 @@
             v-on:click="resetForm()"
             class="clear-fields"
           />
-          <!-- add cancel to a router link -->
+          
           <router-link
             v-bind:to="{ name: 'userMeals' }"
             class="back-button"
@@ -115,6 +112,9 @@ export default {
   line-height: 1.5;
   display: grid;
   place-items: center;
+  color: gray;
+  font-size: 20px;
+
 }
 
 /* Inside Form Styling */
@@ -127,12 +127,6 @@ export default {
   background: rgb(243, 241, 241);
   text-align: center;
   padding: 1.5em;
-}
-
-.add-plan-body {
-  color: gray;
-  font-size: 20px;
-
 }
 
 #add-meal-title {
