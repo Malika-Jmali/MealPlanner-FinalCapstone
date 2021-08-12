@@ -58,8 +58,7 @@ export default {
   justify-content: flex-start;
   gap: 3px;
   flex-flow: wrap;
-  
-  
+  margin-left: 40px;
 }
 
 .my-recipe-card {
