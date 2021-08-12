@@ -10,9 +10,11 @@
       >Click here to add a new meal plan</router-link
     >
     </div>
-    <div class="widget">
-      <p class="daily-calories">To find your daily nutrition goals, use the My Plate Plan widget for FREE</p>
+    <div class="add-meal-plan">
+    <div id="widget">
+      <p class="daily-calories">To find your daily nutrition goals, use the My Plate Plan widget</p>
     <iframe src="https://www.myplate.gov/widgets/myplate-plan-start/sm" scrolling="no" style="min-height: 300px;"></iframe>
+    </div>
     </div>
 
     <div v-bind="getMyMeals()">
@@ -52,6 +54,7 @@ export default {
   margin: 0;
   padding: 0;
 }
+
 .your-meal-plans {
   margin-top: 70px;
   display: flex;
@@ -90,11 +93,20 @@ export default {
   background-color: gray;
 }
 
-.widget, .daily-calroies {
-  text-align: center;
+#widget, .daily-calroies {
   font-size: 18px;
   font-weight: 500;
   color: gray;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  width: 80%;
+  max-width: 600px;
+  border-radius: 10px;
+  background: rgb(243, 241, 241);
+  padding: 2em;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 

@@ -15,9 +15,12 @@
     <p><span class="title">Instructions:</span> {{recipes[0].instructions}}</p>   
     </div>
     </div>
-  
+
             <p>{{message}}</p>
+            <div class="button-wrapper">
+              <router-link class="back-to-spoon-search" v-bind:to="{name: 'spoonacular'}">Back to Search</router-link>
             <button v-if ="$store.state.token != ''" button type="submit" class = "save-this-recipe" v-on:click="changeTitle()"  >Save this Recipe</button>
+            </div>
             <p>Print This Recipe or Share on Social Media:</p>
           <ul class="social-links">
             <li class="social-item">
@@ -33,7 +36,7 @@
               <a id="social-link" href="#"><i class="fab fa-instagram"></i></a>
             </li>
           </ul>
-  <router-link class="back-to-spoon-search" v-bind:to="{name: 'spoonacular'}">Back to Search</router-link>
+  
   </div>
   
 </template>
@@ -87,7 +90,7 @@ export default {
 .recipe-detail-img {
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0,0,0,0.2);
-
+  
 }
 
 .image-sidebar {

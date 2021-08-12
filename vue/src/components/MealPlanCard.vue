@@ -11,9 +11,9 @@
             v-bind:to="{ name: 'mealPlanDetails', params: { id: meal.mealId } }"
             >{{ meal.mealName }}</router-link
           >
-          <p class="recipe-name">{{ meal.breakfastRecipe.recipeName }}</p>
-          <p class="recipe-name">{{ meal.lunchRecipe.recipeName }}</p>
-          <p class="recipe-name">{{ meal.dinnerRecipe.recipeName }}</p>
+          <p class="recipe-name"> <span >Breakfast:</span> {{ meal.breakfastRecipe.recipeName }}</p>
+          <p class="recipe-name"> <span>Lunch: </span>{{ meal.lunchRecipe.recipeName }}</p>
+          <p  class="recipe-name"> <span>Dinner: </span> {{ meal.dinnerRecipe.recipeName }}</p>
           <input
             type="submit"
             value="delete this meal plan"
@@ -89,6 +89,12 @@ export default {
 
 .recipe-name {
   padding: 10px;
+  text-align: left;
+  font-size: 18px;
+}
+
+span {
+  font-weight: bold;
 }
 
 .social-links {
@@ -121,6 +127,7 @@ export default {
   font-size: 2rem;
   line-height: 1;
   letter-spacing: 1px;
+  font-weight: bold;
 }
 
 .meal-plan-name:hover {
